@@ -30,6 +30,15 @@
      underneath (header, hero, footer) is already laid out in place. */
   .fpsplash.entered { visibility: hidden; pointer-events: none; }
 
+  /* 모노: 스플래시 화면(사진·그리드·건물·글자·전환 효과)만 흑백 필터 */
+  .fpsplash.mono .stage, .fpsplash.mono .trans { filter: grayscale(1); }
+  /* 비교용 컬러/모노 전환 버튼 */
+  .fpsplash .tone { position: absolute; top: max(12px, env(safe-area-inset-top, 0px)); left: 50%; z-index: 20; transform: translateX(-50%); display: flex; border: 1px solid var(--ink); background: var(--paper); }
+  .fpsplash .tone button { appearance: none; border: 0; margin: 0; padding: 6px 12px; background: none; color: var(--ink); font: 600 12px/1 var(--body); cursor: pointer; }
+  .fpsplash .tone button[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
+  .fpsplash .tone button:focus-visible { outline: 2px solid var(--ink); outline-offset: 2px; }
+  .fpsplash.revealed .tone { display: none; }
+
   .fpsplash .stage { position: absolute; inset: 0; background: var(--paper); overflow: hidden; cursor: pointer; transition: transform 0.9s cubic-bezier(0.7, 0, 0.2, 1); }
   .fpsplash .stage.leave { transform: translateY(-101%); }
   .fpsplash .layer { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
