@@ -202,7 +202,7 @@
 .footer a:focus-visible { outline-color: #fff; }
 
 /* 배치도 드로잉 시퀀스 — js/main.js가 html.anim을 붙이고, 지도가 35% 보이면 .is-drawn
-   그리드(1.4s) → ▲ ■ ● 외곽선(0.5~0.7s 간격) → 흰 면 → 마커 → 점선 동선(길을 따라 3.4s)
+   그리드(1.4s) → ▲ ■ ● 외곽선(0.5~0.7s 간격) → 흰 면 → 마커 → 점선 동선(길을 따라 3.2s)
    화면(screen)·동작 허용일 때만 숨김 상태를 걸어, 인쇄·동작 줄이기·스크립트 없음에서는 완성 상태로 보입니다. */
 @media screen and (prefers-reduced-motion: no-preference) {
   .anim .campus-map .grid { opacity: 0; transition: opacity 1.4s ease; }
@@ -222,8 +222,8 @@
   /* 동선은 길이를 따라 일정한 속도로 그려짐 → 가로로 꺾이는 구간에서도 튀지 않음
      난향관 갈림길(전체의 약 20%)에 닿으면 짧은 가지가 같은 속도로 이어짐 */
   .anim .campus-map .route-trace { stroke-dasharray: 1; stroke-dashoffset: 1; }
-  .anim .campus-map.is-drawn .route-trace { animation: map-draw 3.4s linear 2.5s forwards; }
-  .anim .campus-map.is-drawn .route-spur { animation-duration: 0.14s; animation-delay: 3.19s; }
+  .anim .campus-map.is-drawn .route-trace { animation: map-draw 3.2s linear 2.5s forwards; }
+  .anim .campus-map.is-drawn .route-spur { animation-duration: 0.14s; animation-delay: 3.15s; }
 }
 @keyframes map-draw { to { stroke-dashoffset: 0; } }
 @keyframes map-fill { to { fill-opacity: 1; } }
