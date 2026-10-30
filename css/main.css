@@ -120,17 +120,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
-  height: 47px;
-  margin: 36px var(--gutter) 0;
+  gap: 10px;
+  width: 156px;   /* 웹처럼 입장하기 문구보다 짧은 작은 버튼 (156×32) */
+  height: 32px;
+  margin: 36px auto 0;
   overflow: hidden;
   color: var(--red);
 }
 .ig .grid { position: absolute; inset: 0; width: 100%; height: 100%; }
 .ig .grid-web { display: none; }
 .ig-mark, .ig a { position: relative; }
-.ig-mark { width: 13px; height: 13px; flex: none; }   /* 인스타그램 아이콘 (IG 글자 크기 정도) */
-.ig a { font-size: 12px; font-weight: 400; line-height: 3; text-decoration: none; transition: color 0.3s ease; }
+.ig-mark { width: 11px; height: 11px; flex: none; }   /* 인스타그램 아이콘 (IG 글자 크기 정도) */
+.ig a { font-size: 10px; font-weight: 400; line-height: 32px; text-decoration: none; transition: color 0.3s ease; }
 .ig a:hover, .ig a:focus-visible { color: var(--red); }
 
 /* 크레딧 */
