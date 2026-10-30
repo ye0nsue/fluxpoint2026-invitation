@@ -224,8 +224,8 @@
   /* 동선은 길이를 따라 일정한 속도로 그려짐 → 가로로 꺾이는 구간에서도 튀지 않음
      난향관 갈림길(전체의 약 20%)에 닿으면 짧은 가지가 같은 속도로 이어짐 */
   .anim .campus-map .route-trace { stroke-dasharray: 1; stroke-dashoffset: 1; }
-  .anim .campus-map.is-drawn .route-trace { animation: map-draw 3.2s linear 2.5s forwards; }
-  .anim .campus-map.is-drawn .route-spur { animation-duration: 0.14s; animation-delay: 3.15s; }
+  .anim .campus-map.is-drawn .route-trace { animation: map-draw 3.2s linear 2.2s forwards; }
+  .anim .campus-map.is-drawn .route-spur { animation-duration: 0.14s; animation-delay: 2.85s; }
 }
 @keyframes map-draw { to { stroke-dashoffset: 0; } }
 @keyframes map-fill { to { fill-opacity: 1; } }
