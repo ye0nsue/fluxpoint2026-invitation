@@ -137,7 +137,7 @@
 .ig .grid-web { display: none; }
 .ig-mark, .ig a { position: relative; }
 .ig-mark { font-size: 15px; font-weight: 500; line-height: normal; }
-.ig a { font-size: 12px; font-weight: 400; line-height: 3; transition: color 0.3s ease; }
+.ig a { font-size: 12px; font-weight: 400; line-height: 3; text-decoration: none; transition: color 0.3s ease; }
 .ig a:hover, .ig a:focus-visible { color: var(--red); }
 
 /* 크레딧 */
