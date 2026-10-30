@@ -299,6 +299,9 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
     padding-bottom: 1.111vw;
   }
   .credits dt, .credits dd { padding: 0.694vw; }
+  /* 참여작가: 모바일과 같은 줄바꿈(Figma Mobile 기준 6줄)으로 고정하고 각 줄을 양끝 맞춤 */
+  .credits .artists span { display: block; white-space: nowrap; text-align-last: justify; }
+  .credits .artists span:last-child { text-align-last: auto; }
 
   /* 푸터 (Figma footer Default) */
   .footer {
