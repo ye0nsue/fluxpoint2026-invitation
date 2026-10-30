@@ -333,15 +333,17 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
   .enter-small { margin-top: 1.389vw; font-size: 1.389vw; }
 
   /* 인스타그램 */
-  .ig {
-    gap: 4.444vw;
-    height: 8.958vw;
-    margin-top: 8.611vw;
+  /* 입장하기 문구보다 짧은 작은 버튼 크기 (346×60 @1440) */
+  .page > .ig {
+    gap: 1.389vw;
+    width: 24vw;
+    height: 4.167vw;
+    margin: 5.556vw auto 0;
   }
   .ig .grid-web { display: block; }
   .ig .grid-mobile { display: none; }
-  .ig-mark { font-size: 3.655vw; }
-  .ig a { font-size: 2.924vw; line-height: normal; }
+  .ig-mark { font-size: 1.667vw; }
+  .ig a { font-size: 1.25vw; line-height: normal; }
 
   /* 크레딧: 2열 */
   .credits {
