@@ -333,11 +333,11 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
   .enter-small { margin-top: 1.389vw; font-size: 1.389vw; }
 
   /* 인스타그램 */
-  /* 입장하기 문구보다 짧은 작은 버튼 크기 (346×60 @1440) */
+  /* 입장하기 문구보다 짧은 작은 버튼 크기 (350×62 @1440) */
   .page > .ig {
     gap: 1.389vw;
-    width: 24vw;
-    height: 4.167vw;
+    width: 24.306vw;
+    height: 4.306vw;
     margin: 5.556vw auto 0;
   }
   .ig .grid-web { display: block; }
