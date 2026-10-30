@@ -30,8 +30,10 @@
      underneath (header, hero, footer) is already laid out in place. */
   .fpsplash.entered { visibility: hidden; pointer-events: none; }
 
-  /* 모노: 스플래시 화면(사진·그리드·건물·글자·전환 효과)만 흑백 필터 */
-  .fpsplash.mono .stage, .fpsplash.mono .trans { filter: grayscale(1); }
+  /* 모노: 그리드·건물·도형·날짜의 레드를 블랙(#1b191a)으로, 사진은 고대비 흑백
+     (레드가 contrast 2.02에서 #1b 근처의 검정, 흰색은 그대로 흰색) */
+  .fpsplash.mono { --grid: #1b191a; --stroke: #1b191a; --mark: #1b191a; --band: #1b191a; --date: #1b191a; }
+  .fpsplash.mono .photo { filter: grayscale(1) contrast(2.02); }
   /* 비교용 컬러/모노 전환 버튼 */
   .fpsplash .tone { position: absolute; top: max(12px, env(safe-area-inset-top, 0px)); left: 50%; z-index: 20; transform: translateX(-50%); display: flex; border: 1px solid var(--ink); background: var(--paper); }
   .fpsplash .tone button { appearance: none; border: 0; margin: 0; padding: 6px 12px; background: none; color: var(--ink); font: 600 12px/1 var(--body); cursor: pointer; }
@@ -85,9 +87,9 @@
   .fpsplash .go .legend p { animation: fpsplash-rise 0.6s ease-out var(--d, 0s) both; }
   @keyframes fpsplash-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
 
-  .fpsplash .date { -webkit-text-stroke: max(0.8px, calc(1.6px * var(--k))) #dc241b; paint-order: stroke fill; position: absolute; left: 0; top: 0; margin: 0; white-space: nowrap; pointer-events: none; font: 700 calc(84px * var(--k))/1 var(--display); letter-spacing: -0.01em; color: #fff; transform-origin: 0 0; transform: rotate(90deg); }
+  .fpsplash .date { -webkit-text-stroke: max(0.8px, calc(1.6px * var(--k))) var(--date, #dc241b); paint-order: stroke fill; position: absolute; left: 0; top: 0; margin: 0; white-space: nowrap; pointer-events: none; font: 700 calc(84px * var(--k))/1 var(--display); letter-spacing: -0.01em; color: #fff; transform-origin: 0 0; transform: rotate(90deg); }
   .fpsplash .date span { display: inline; }
-  .fpsplash .stage.mobile .date { color: #dc241b; transform: none; text-align: right; }
+  .fpsplash .stage.mobile .date { color: var(--date, #dc241b); transform: none; text-align: right; }
   .fpsplash .stage.mobile .date span { display: block; }
   .fpsplash .go .date { animation: fpsplash-fadein 0.8s ease-out 7.5s both; }
   @keyframes fpsplash-fadein { from { opacity: 0; } to { opacity: 1; } }

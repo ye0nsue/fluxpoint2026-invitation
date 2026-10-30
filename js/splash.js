@@ -35,8 +35,8 @@ const PH = {
         10.0, 10.0, 5.0, 0.0, 19.0, 284.0, 958.0, 897.0, 913.0, 938.0,
     ],
 };
-const PHOTO_RED = "#e52525";
-const BAND_RED = "#e52525";
+// 사진 실루엣·띠·전환 점 색: 컬러는 레드, 모노는 블랙(#1b191a)
+const tint = () => (root.classList.contains("mono") ? "#1b191a" : "#e52525");
 let gridStart = 4.6;
 const WAVE_START = 5500;
 const WAVE_DUR = 1900;
@@ -279,19 +279,16 @@ function draw(R) {
             p.arc(x, y, r, 0, 6.2832);
         }
     }
-    ctx.fillStyle = PHOTO_RED;
+    ctx.fillStyle = tint();
     ctx.fill(p1);
-    ctx.fillStyle = BAND_RED;
     ctx.fill(p2);
     clip();
 }
 function finish() {
     done = true;
     ctx.clearRect(0, 0, W, H);
-    ctx.fillStyle = PHOTO_RED;
-    ctx.fillRect(0, 0, bandX, H);
-    ctx.fillStyle = BAND_RED;
-    ctx.fillRect(bandX, 0, W - bandX, H);
+    ctx.fillStyle = tint();
+    ctx.fillRect(0, 0, W, H);
     clip();
 }
 function skip() {
@@ -406,7 +403,7 @@ function transition(ox0, oy0) {
                 path.moveTo(x + r, y);
                 path.arc(x, y, r, 0, 6.2832);
             }
-        tctx.fillStyle = PHOTO_RED;
+        tctx.fillStyle = tint();
         tctx.fill(path);
     }
     function tick(now) {
@@ -425,7 +422,7 @@ function transition(ox0, oy0) {
                 swapped = true;
             }
             tctx.clearRect(0, 0, tw, th);
-            tctx.fillStyle = PHOTO_RED;
+            tctx.fillStyle = tint();
             tctx.fillRect(0, 0, tw, th);
             // Still waiting: pin the clock at the end of HOLD so the reveal
             // starts from its beginning once the images land.
@@ -518,13 +515,15 @@ const fontsReady = new Promise((resolve) => {
 });
 Promise.all([photoReady, fontsReady]).then(go);
 
-// 비교용 컬러/모노 전환: 모노는 스플래시에만 흑백 필터(css/splash.css .fpsplash.mono).
+// 비교용 컬러/모노 전환: 모노는 스플래시의 레드를 블랙(#1b191a)으로 바꿉니다(css/splash.css .fpsplash.mono).
 // 마지막 선택은 이 브라우저에만 기억합니다.
 const toneBtns = root.querySelectorAll(".tone button");
 const setTone = (tone) => {
     root.classList.toggle("mono", tone === "mono");
     toneBtns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.tone === tone)));
     try { localStorage.setItem("fpsplash-tone", tone); } catch (e) {}
+    if (done)
+        finish();   // 다 그려진 사진 실루엣도 새 색으로 다시 칠함
 };
 toneBtns.forEach((b) => b.addEventListener("click", () => setTone(b.dataset.tone)));
 try { if (localStorage.getItem("fpsplash-tone") === "mono") setTone("mono"); } catch (e) {}
