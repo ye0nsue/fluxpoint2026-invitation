@@ -184,3 +184,9 @@
   font-weight: 600;
   line-height: normal;
 }
+
+/* 스크롤바: final red. (iOS Safari 등 모바일의 겹쳐 뜨는 스크롤바는 브라우저가 색을 바꾸지 못하게 합니다.) */
+html { scrollbar-color: #dc241b transparent; }
+html::-webkit-scrollbar { width: 6px; height: 6px; }
+html::-webkit-scrollbar-track { background: transparent; }
+html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
