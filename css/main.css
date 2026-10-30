@@ -151,6 +151,7 @@
   line-height: normal;
 }
 .footer p { margin: 0; }
+.footer a { text-decoration: none; }
 .footer-title { margin-bottom: 4px !important; font-size: 9.732px; font-weight: 600; }
 .footer-links { margin-top: auto !important; font-weight: 600; }
 .footer-copy { font-size: 8.156px; }
