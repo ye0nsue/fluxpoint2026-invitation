@@ -138,6 +138,9 @@
 
 /* 푸터 */
 .footer {
+  /* 크레딧 높이가 소수점이라 경계에 1px 미만 틈(흰 선)이 비치지 않도록 살짝 겹칩니다. */
+  position: relative;
+  margin-top: -1px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
