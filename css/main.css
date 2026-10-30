@@ -286,7 +286,7 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
   .credits {
     margin-top: 8.333vw;
     padding: 5.556vw calc((100% - var(--wrap)) / 2);
-    font-size: 1.111vw;
+    font-size: 0.903vw;   /* 13px @1440 */
   }
   .credits dl {
     display: block;
@@ -300,6 +300,7 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
   }
   .credits dt, .credits dd { padding: 0.694vw; }
   /* 참여작가: 모바일과 같은 줄바꿈(Figma Mobile 기준 6줄)으로 고정하고 각 줄을 양끝 맞춤 */
+  .credits .artists { width: max-content; }   /* 가장 긴 줄 너비에 맞춰 양끝 맞춤 */
   .credits .artists span { display: block; white-space: nowrap; text-align-last: justify; }
   .credits .artists span:last-child { text-align-last: auto; }
 
