@@ -66,9 +66,20 @@
         <rect width="312" height="289.17" fill="url(#map-grid)"/>
       </svg>
       <img class="map-route" src="assets/main/map-route.png" width="576" height="760" alt="" loading="lazy">
-      <img class="map-bld map-bld-tri" src="assets/main/building-triangle.svg" width="73" height="83" alt="" loading="lazy">
-      <img class="map-bld map-bld-sq" src="assets/main/building-square.svg" width="43" height="132" alt="" loading="lazy">
-      <img class="map-bld map-bld-ci" src="assets/main/building-circle.svg" width="71" height="100" alt="" loading="lazy">
+      <!-- 건물 드로잉(js/main.js): 외곽선이 그려지고 → 흰 면 → 마커. 순서 ▲ 조형1관 → ■ 난향관 → ● 수정관 -->
+      <svg class="map-bld map-bld-tri" style="--t: 0.4s" viewBox="0 0 72.9314 82.9679" preserveAspectRatio="none" overflow="visible" aria-hidden="true">
+        <path class="bld-ol" d="M4.95598 5.41313L21.7968 45.8445L12.5744 44.0735L9.60056 55.6683L3.28526 54.2649L2.0155 64.4897L10.7701 68.0985L15.6486 62.1507L17.4195 62.2844L24.47 66.0602L22.7658 71.2394L34.394 72.977L35.9311 70.2036L62.9633 79.6932L66.7057 80.963L67.4408 80.6288L70.9159 66.8956L40.6425 56.4703L41.6783 53.4296L34.8952 49.4198L15.8825 2.37242L14.88 2.00486L4.95598 5.41313Z" fill="white" stroke-width="0.76853" stroke-linejoin="round" stroke="#DC241B" pathLength="1"/>
+        <path class="bld-mk" d="M31.6875 56.203L34.6948 62.0171H28.6802L31.6875 56.203Z" fill="#DC241B"/>
+      </svg>
+      <svg class="map-bld map-bld-sq" style="--t: 0.9s" viewBox="0 0 42.7026 131.866" preserveAspectRatio="none" overflow="visible" aria-hidden="true">
+        <path class="bld-ol" d="M40.5646 4.81187L25.1052 2.0476L16.6077 31.2601L14.3212 29.0418L14.799 11.1594L6.19903 10.4428L3.70779 11.0229L2.13797 50.8488L11.2498 50.2345L12.3077 49.1083L14.2871 41.737L16.5394 42.3854L16.7101 76.8192L27.9378 77.1264L32.1012 35.5259L40.5305 7.269L40.5646 4.81187Z" fill="white" stroke-width="0.784914" stroke-linejoin="round" stroke="#DC241B" pathLength="1"/>
+        <path class="bld-ol" d="M29.6782 78.4914L23.6719 79.8906L22.8529 78.1502H18.9966L16.7442 78.9692L23.4672 111.594L22.9553 112.311L13.2292 114.359L15.0379 118.351L10.7379 120.194L12.4442 129.545L13.1268 129.818L40.3257 125.109L38.7218 113.232L34.1488 114.461L33.5345 113.676L33.0568 114.939L31.1457 115.485L29.6782 78.4914Z" fill="white" stroke-width="0.784914" stroke-linejoin="round" stroke="#DC241B" pathLength="1"/>
+        <path class="bld-mk" d="M26.914 35.6283H22.1362V40.6108H26.914V35.6283Z" fill="#DC241B"/>
+      </svg>
+      <svg class="map-bld map-bld-ci" style="--t: 1.6s" viewBox="0 0 70.7691 100.307" preserveAspectRatio="none" overflow="visible" aria-hidden="true">
+        <path class="bld-ol" d="M37.7066 1.94403L35.6152 7.51082L28.7567 5.66548L1.84536 82.7087L10.8568 85.446L10.1494 88.3986L38.3525 98.3634L41.3358 90.9821L46.5335 91.4434L47.8868 84.8616L57.9439 87.8142L63.6645 63.7632L66.7401 63.3018L68.9237 57.8273L65.7866 56.351L67.2937 51.4916L61.6038 49.7693L62.8341 46.2631L66.6478 35.0988L63.5107 32.9459L66.5248 26.1181L61.3578 21.5047L64.4641 12.0319L37.7066 1.94403Z" fill="white" stroke-width="0.707383" stroke-linejoin="round" stroke="#DC241B" pathLength="1"/>
+        <path class="bld-mk" d="M36.5994 52.1067C38.0432 52.1067 39.2136 50.9363 39.2136 49.4925C39.2136 48.0487 38.0432 46.8782 36.5994 46.8782C35.1556 46.8782 33.9852 48.0487 33.9852 49.4925C33.9852 50.9363 35.1556 52.1067 36.5994 52.1067Z" fill="#DC241B"/>
+      </svg>
       <figcaption class="sr-only">▲ 조형1관, ■ 난향관, ● 수정관을 잇는 관람 동선 지도</figcaption>
     </figure>
     <p class="notice">*교내 안전상의 이유로 전시장 제외 모든 건물의 1층 외에는 외부인의 출입이 어려우니, 관람 시 이 점 유의 부탁드립니다.</p>
@@ -93,7 +104,7 @@
       <img src="assets/main/site-preview.jpg" srcset="assets/main/site-preview.jpg 936w, assets/main/site-preview-1400.jpg 1400w, assets/main/site-preview-2200.jpg 2200w" sizes="(min-width: 695px) 76vw, 80vw" width="936" height="608" alt="Flux Point 2026 졸업전시 웹사이트 미리보기" loading="lazy">
     </a>
     <a class="enter-small" href="https://fluxpoint2026.vercel.app/" target="_blank" rel="noopener">2026 성신여자대학교 서양화과 졸업 전시 입장하기</a>
-    <a class="enter-big" href="https://fluxpoint2026.vercel.app/" target="_blank" rel="noopener">Dec 1 - Dec 6, 2026<br>Enter the Flux Point</a>
+    <a class="enter-big" href="https://fluxpoint2026.vercel.app/" target="_blank" rel="noopener">Dec 1 - Dec 6, 2026<br>Enter the Graduation Exhibition</a>
   </section>
 
   <div class="ig">
@@ -208,5 +219,6 @@
         </div>
 </div>
 <script src="js/splash.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
