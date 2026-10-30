@@ -1,1 +1,154 @@
-/* 메인 화면 스타일 (Figma 디자인 기반으로 작성 예정) */
+/* 메인 화면 (모바일 초대장) — Figma "Mobile" 프레임(390px) 기준.
+   Figma의 Haas Grotesk Display(체험판 폰트)는 웹에 쓸 수 없어 Inter로 대체했습니다. */
+.page {
+  --ink: #1b191a;
+  --red: #dc241b;
+  --paper: #ffffff;
+  --sans: 'Inter', 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  --gutter: clamp(20px, 10vw, 39px);
+
+  max-width: 390px;
+  margin: 0 auto;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.8;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  -webkit-text-size-adjust: 100%;
+}
+.page img { display: block; max-width: 100%; height: auto; }
+.page h1, .page h2, .page p, .page figure, .page dl, .page dd { margin: 0; }
+.page a { color: inherit; text-underline-offset: 2px; }
+.page .accent { color: var(--red); }
+.page .sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.page > header,
+.page > section:not(.credits) { padding-inline: var(--gutter); }
+
+/* 상단: 로고 · 부제 · 점선 · 포스터 */
+.hero { padding-top: 64px; text-align: center; }
+.hero-logo { display: flex; justify-content: center; margin-inline: -7px; }
+.hero-logo img { width: 326px; }
+.hero-sub { margin-top: 16px; font-weight: 300; line-height: 1.5; }
+.page .dotted { width: 8px; margin: 4px auto 0; }
+.poster { width: 100%; margin-top: 8px; aspect-ratio: 312 / 441.15; object-fit: cover; }
+
+/* 전시 서문 */
+.intro { margin-top: 32px; }
+.intro-title { font-size: 16px; font-weight: 700; line-height: normal; }
+.intro-title + p { margin-top: 4px; }
+.intro p { text-align: justify; text-indent: 0.3em; }
+.intro p + p { margin-top: 1.8em; }
+
+/* 전시 기간 · 장소 · 오시는 길 */
+.info { margin-top: 32px; }
+.info-period { margin-top: 36px; }
+.info h2 { font-size: 12px; font-weight: 700; line-height: normal; }
+.info h2 + p { margin-top: 4px; }
+.info b { font-weight: 700; }
+.info strong { font-weight: 600; }
+.info-route p { text-align: justify; }
+.info-route p + p { margin-top: 1.8em; }
+
+.campus-map {
+  position: relative;
+  margin-top: 16px;
+  aspect-ratio: 312 / 289.17;
+  overflow: hidden;
+}
+.campus-map .grid { position: absolute; inset: 0; width: 100%; height: 100%; }
+.campus-map img { position: absolute; max-width: none; }
+.map-route   { left: 19.559%; top: 6.741%;  width: 60.986%; height: 86.829%; object-fit: cover; }
+.map-bld-tri { left: 31.012%; top: 5.613%;  width: 23.375%; height: 28.692%; }
+.map-bld-sq  { left: 18.818%; top: 30.802%; width: 13.687%; height: 45.602%; }
+.map-bld-ci  { left: 58.5%;   top: 59.699%; width: 22.682%; height: 34.688%; }
+
+.notice {
+  margin-top: 8px;
+  padding-left: 0.6em;
+  text-indent: -0.6em;
+  color: var(--red);
+  font-size: 8.667px;
+  font-weight: 400;
+  line-height: normal;
+}
+.map-photo { width: 100%; margin-top: 12px; aspect-ratio: 312 / 441.1; object-fit: cover; }
+
+/* 웹사이트 입장 링크 */
+.enter-site { text-align: center; }
+.site-preview { display: block; margin-top: 8px; aspect-ratio: 312 / 177.1; overflow: hidden; }
+.site-preview img { width: 100%; height: 100%; object-fit: cover; object-position: bottom; }
+.enter-small {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--red) !important;
+  font-size: 8px;
+  font-weight: 600;
+  line-height: normal;
+}
+.enter-big {
+  display: block;
+  width: fit-content;
+  margin: 8px auto 0;
+  font-size: 12px;
+  font-style: italic;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration: none;
+}
+
+/* 인스타그램 */
+.ig {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  height: 47px;
+  margin: 36px var(--gutter) 0;
+  overflow: hidden;
+  color: var(--red);
+}
+.ig .grid { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ig-mark, .ig a { position: relative; }
+.ig-mark { font-size: 15px; font-weight: 500; line-height: normal; }
+.ig a { font-size: 12px; font-weight: 400; line-height: 3; }
+
+/* 크레딧 */
+.credits {
+  margin-top: 42px;
+  padding: 31px 37.68px 30px;
+  background: var(--red);
+  color: #fff;
+  font-size: 8.606px;
+}
+.credits dl { display: grid; gap: 9.2px; }
+.credits dl > div { display: grid; grid-template-columns: 107.58px 1fr; }
+.credits dt, .credits dd { padding: 5.379px; }
+.credits dt { font-weight: 600; white-space: nowrap; }
+.credits dd { font-weight: 500; letter-spacing: -0.01em; text-align: justify; }
+
+/* 푸터 */
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  min-height: 170px;
+  box-sizing: border-box;
+  padding: 19.5px 32.56px 20px;
+  background: var(--red);
+  color: #fff;
+  font-size: 8.11px;
+  line-height: normal;
+}
+.footer p { margin: 0; }
+.footer-title { margin-bottom: 4px !important; font-size: 9.732px; font-weight: 600; }
+.footer-links { margin-top: auto !important; font-weight: 600; }
+.footer-copy { font-size: 8.156px; }

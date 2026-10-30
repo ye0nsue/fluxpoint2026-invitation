@@ -376,7 +376,9 @@ function transition(ox0, oy0) {
     // HOLD until its images are ready, so the dots never clear onto a
     // blank page.
     let pageReady = false;
-    const pageImages = Array.from(document.images).filter((img) => !root.contains(img) && !img.complete);
+    // Lazy images below the fold won't load until scrolled to, so only
+    // wait on the ones the first screen actually shows.
+    const pageImages = Array.from(document.images).filter((img) => !root.contains(img) && !img.complete && img.loading !== "lazy");
     Promise.race([
         Promise.all(pageImages.map((img) => img.decode().catch(() => { }))),
         new Promise((resolve) => setTimeout(resolve, PAGE_IMAGES_MAX_WAIT_MS)),

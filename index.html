@@ -6,15 +6,116 @@
 <title>Flux Point 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;900&family=Noto+Sans+KR:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="preload" href="assets/intro-photo.webp" as="image" fetchpriority="high">
 <link rel="stylesheet" href="css/splash.css">
 <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-<!-- 메인 화면: 스플래시 오버레이 아래에 미리 깔려 있다가, 입장 전환이 끝나면 드러납니다.
-     (Figma 디자인을 보고 채울 예정) -->
-<main class="page" id="main"></main>
+<!-- 메인 화면(모바일 초대장): 스플래시 오버레이 아래에 미리 깔려 있다가, 입장 전환이 끝나면 드러납니다. -->
+<main class="page" id="main">
+  <header class="hero">
+    <h1 class="hero-logo"><img src="assets/main/logo-flux-point.svg" width="326" height="54" alt="Flux Point"></h1>
+    <p class="hero-sub">2026 Sungshin Women’s University<br>Department of Painting Graduation Exhibition</p>
+    <img class="dotted" src="assets/main/dotted-line.svg" width="8" height="65" alt="">
+    <img class="poster" src="assets/main/poster.jpg" width="936" height="1323" alt="Flux Point 2026 전시 포스터">
+  </header>
+
+  <section class="intro">
+    <h2 class="intro-title">⟪Flux Point⟫</h2>
+    <p>시공간의 무수한 흐름 속에서 마주한 개개인의 좌표들은 서로의 궤적을 공유하며 하나의 유동적 흐름, 플럭스(Flux)를 형성한다. 올해로 63년의 연혁을 맞이한 성신여자대학교 미술대학의 역사는 이 자리에서 수많은 주체들이 교차하며 남긴 흔적의 총합이다. 이번 전시는 대학이라는 제도적 울타리를 벗어나, 독립된 창작자로서 첫 발을 내딛는 32명 작가들의 전환점(Flux Point)을 기록한다.</p>
+    <p>유동하는 좌표의 형상은 자칫 불안정한 상태로 비칠 수 있다. 그러나 1960년대 예술의 고정된 형식을 해체하고 삶과 창작의 경계를 허물었던 전위 예술 운동 플럭서스(Fluxus)가 보여주었듯, 고정되지 않은 흐름이야말로 시스템을 전복하는 예술적 에너지의 근원이다.</p>
+    <p>이러한 플럭서스의 전복적인 에너지는 캠퍼스 내 경계를 허물고, 세 곳의 건물에서 동시다발적으로 전개된다. 이로써 이곳의 이미지들은 고정된 화이트 큐브의 완결성을 탈피하며, 끊임없이 요동치는 가변적 존재로서 작동한다.</p>
+    <p>세 개의 좌표로 분포된 작품들은 관람객이 물리적 공간을 이동하며 수행하는 시선의 교차와 발걸음, 그 틈새에서 발생하는 마찰을 통해 비로소 하나의 지도로 엮인다. 여기에 모인 작품들은 변화해 나갈 예술적 사유 한가운데 위치한 감각의 지표이자 예술적 탐구의 방향성을 지시하는 이정표이다. 「 Flux Point 」는 이 유동적인 흐름이 교차하고 충돌하며 만들어내는 상태 속의 기록이며, 동시에 기존의 경계를 넘어 각자의 새로운 궤적을 향해 나아가는 출발점이 된다.</p>
+  </section>
+
+  <section class="info info-period">
+    <h2>전시 기간</h2>
+    <p>2026.12.01. TUE - 2026. 12.06. SUN<br>AM 10:00 - PM 7:00<br><b class="accent">Opening</b> <strong>12.01. TUE&ensp;PM 2:00 가온갤러리 앞</strong></p>
+  </section>
+
+  <section class="info info-venue">
+    <h2>전시 장소</h2>
+    <p>성신여자대학교 돈암수정캠퍼스<br>서울특별시 성북구 보문로 34다길 2<br>
+      <span class="accent">●</span> 수정관 1F 가온갤러리<br>
+      <span class="accent">■&#xFE0E;</span> 난향관 4F 파이룸 (π룸)<br>
+      <span class="accent">▲</span> 조형1관 1F S101 / 6F 601호, 606호</p>
+
+    <figure class="campus-map">
+      <svg class="grid" viewBox="0 0 312 289.17" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <pattern id="map-grid" x="0.403" y="0" width="7.126" height="6.93" patternUnits="userSpaceOnUse">
+            <rect width="7.126" height="6.93" fill="none" stroke="#dc241b" stroke-width="0.314"/>
+          </pattern>
+        </defs>
+        <rect width="312" height="289.17" fill="url(#map-grid)"/>
+      </svg>
+      <img class="map-route" src="assets/main/map-route.png" width="576" height="760" alt="" loading="lazy">
+      <img class="map-bld map-bld-tri" src="assets/main/building-triangle.svg" width="73" height="83" alt="" loading="lazy">
+      <img class="map-bld map-bld-sq" src="assets/main/building-square.svg" width="43" height="132" alt="" loading="lazy">
+      <img class="map-bld map-bld-ci" src="assets/main/building-circle.svg" width="71" height="100" alt="" loading="lazy">
+      <figcaption class="sr-only">▲ 조형1관, ■ 난향관, ● 수정관을 잇는 관람 동선 지도</figcaption>
+    </figure>
+    <p class="notice">*교내 안전상의 이유로 전시장 제외 모든 건물의 1층 외에는 외부인의 출입이 어려우니, 관람 시 이 점 유의 부탁드립니다.</p>
+    <img class="map-photo" src="assets/main/map-photo.jpg" width="870" height="1230" alt="성신여자대학교 돈암수정캠퍼스 전시장 위치 지도" loading="lazy">
+  </section>
+
+  <section class="info info-route">
+    <h2>오시는 길</h2>
+    <p>버스<br>성신여대 입구 - 101, 102, 103, 104, 106, 107, 140, 142, 143, 149, 150, 152, 160, 161, 162, 171, 172, 1162, 1212<br>성북구청 입구 - 103, 142, 152, 272, 1014, 1111</p>
+    <p>지하철<br>4호선 성신여대입구역 1,2번 출구 또는<br>6호선 보문역 4번 출구에서 하차 후 도보로 약 10분 이동</p>
+  </section>
+
+  <section class="enter-site">
+    <img class="dotted" src="assets/main/dotted-line.svg" width="8" height="65" alt="" loading="lazy">
+    <a class="site-preview" href="https://fluxpoint2026.vercel.app/" target="_blank" rel="noopener">
+      <img src="assets/main/site-preview.jpg" width="936" height="608" alt="Flux Point 2026 졸업전시 웹사이트 미리보기" loading="lazy">
+    </a>
+    <a class="enter-small" href="https://fluxpoint2026.vercel.app/" target="_blank" rel="noopener">2026 성신여자대학교 서양화과 졸업 전시 입장하기</a>
+    <a class="enter-big" href="https://fluxpoint2026.vercel.app/" target="_blank" rel="noopener"><u>Dec 1 - Dec 6, 2026</u><br><u>Enter the </u>Flux Point</a>
+  </section>
+
+  <div class="ig">
+    <svg class="grid" aria-hidden="true">
+      <defs>
+        <pattern id="ig-grid" x="-123.63" y="-42.42" width="12.324" height="11.985" patternUnits="userSpaceOnUse">
+          <rect width="12.324" height="11.985" fill="none" stroke="#dc241b" stroke-width="0.29"/>
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#ig-grid)"/>
+    </svg>
+    <span class="ig-mark">IG</span>
+    <a href="https://www.instagram.com/sswu_painting_g/" target="_blank" rel="noopener">@sswu_painting_g</a>
+  </div>
+
+  <section class="credits" aria-label="크레딧">
+    <dl>
+      <div><dt>주최</dt><dd>성신여자대학교 미술대학 서양화과</dd></div>
+      <div><dt>참여작가</dt><dd>곽신영, 구아림, 권민진, 김가영, 김서영, 김서정, 김세원, 김유진, 김은수, 김채은, 나윤서, 박세린, 박예지, 오정현, 오주한, 윤정현, 이서진, 이지윤, 이채원(20222034), 이채원(20232014), 임가은, 임세연, 장연수, 전윤하, 정민재, 정세진, 차수연, 최유진, 최하영, 하설빈, 한수연, 한채연</dd></div>
+      <div><dt>교수진</dt><dd>박영근, 조병왕, 임상빈, 김정연</dd></div>
+      <div><dt>졸업전시준비 총감독</dt><dd>조병왕</dd></div>
+      <div><dt>졸업전시준비위원장</dt><dd>임가은</dd></div>
+      <div><dt>기획</dt><dd>차수연, 정세진</dd></div>
+      <div><dt>편집</dt><dd>구아림, 최하영</dd></div>
+      <div><dt>재무</dt><dd>박예지</dd></div>
+      <div><dt>홍보</dt><dd>구아림, 박예지</dd></div>
+      <div><dt>디자인</dt><dd>김규빈 디자이너, 정세진, 최하영, 구아림</dd></div>
+      <div><dt>초대장 기획</dt><dd>정세진</dd></div>
+      <div><dt>초대장 디자인, 개발</dt><dd>장연수</dd></div>
+      <div><dt>웹사이트 기획, 디자인, 개발</dt><dd>장연수</dd></div>
+      <div><dt>촬영 및 인쇄</dt><dd>제이앤 컴퍼니</dd></div>
+      <div><dt>협찬</dt><dd>ㅇㅇㅇ</dd></div>
+    </dl>
+  </section>
+
+  <footer class="footer">
+    <p class="footer-title">성신여자대학교 가온갤러리 | 파이룸 |&nbsp; S101</p>
+    <a href="https://naver.me/x9BAFxI3" target="_blank" rel="noopener">서울특별시 성북구 보문로34다길 2 / 수정관 1F | 난향관 4F | 조형 1관 1F</a>
+    <p>서양화과 과사무실. 02-920-7539</p>
+    <p class="footer-links"><a href="https://www.sungshin.ac.kr/western/index.do" target="_blank" rel="noopener">성신여자대학교 서양화과 .</a>&nbsp; | &nbsp;<a href="https://www.instagram.com/sswu_painting_g/" target="_blank" rel="noopener">IG .</a></p>
+    <p class="footer-copy">© 2026 성신여자대학교 서양화과 졸업전시위원회.</p>
+  </footer>
+</main>
 
 <!-- 스플래시: 화면 비율에 따라 웹(가로)·태블릿(compact)·모바일(세로) 레이아웃이 자동으로 바뀝니다. -->
 <div class="fpsplash" id="fpsplash">
