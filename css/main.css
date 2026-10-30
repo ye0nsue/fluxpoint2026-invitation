@@ -129,7 +129,7 @@
 .ig .grid { position: absolute; inset: 0; width: 100%; height: 100%; }
 .ig .grid-web { display: none; }
 .ig-mark, .ig a { position: relative; }
-.ig-mark { font-size: 15px; font-weight: 500; line-height: normal; }
+.ig-mark { width: 13px; height: 13px; flex: none; }   /* 인스타그램 아이콘 (IG 글자 크기 정도) */
 .ig a { font-size: 12px; font-weight: 400; line-height: 3; text-decoration: none; transition: color 0.3s ease; }
 .ig a:hover, .ig a:focus-visible { color: var(--red); }
 
@@ -342,7 +342,7 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
   }
   .ig .grid-web { display: block; }
   .ig .grid-mobile { display: none; }
-  .ig-mark { font-size: 1.667vw; }
+  .ig-mark { width: 1.389vw; height: 1.389vw; }
   .ig a { font-size: 1.25vw; line-height: normal; }
 
   /* 크레딧: 2열 */
