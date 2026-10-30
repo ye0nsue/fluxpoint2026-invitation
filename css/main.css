@@ -128,12 +128,13 @@
 /* 크레딧 */
 .credits {
   margin-top: 42px;
-  padding: 31px 37.68px 30px;
+  /* 글자 시작선을 본문(--gutter)에 맞춤: 칸 안쪽 여백 5.379px만큼 덜어냄 */
+  padding: 31px calc(var(--gutter) - 5.379px) 30px;
   background: var(--red);
   color: #fff;
   font-size: 8.606px;
 }
-.credits dl { display: grid; gap: 9.2px; }
+.credits-cols, .credits dl { display: grid; gap: 9.2px; }
 .credits dl > div { display: grid; grid-template-columns: 107.58px 1fr; }
 .credits dt, .credits dd { padding: 5.379px; }
 .credits dt { font-weight: 600; white-space: nowrap; }
@@ -150,7 +151,7 @@
   gap: 6px;
   min-height: 170px;
   box-sizing: border-box;
-  padding: 19.5px 32.56px 20px;
+  padding: 19.5px var(--gutter) 20px;
   background: var(--red);
   color: #fff;
   font-size: 8.11px;
@@ -288,14 +289,15 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
     padding: 5.556vw calc((100% - var(--wrap)) / 2);
     font-size: 0.903vw;   /* 13px @1440 */
   }
-  .credits dl {
-    display: block;
-    columns: 2;
+  .credits-cols {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
     column-gap: 5.784vw;
+    margin-inline: -0.694vw;   /* 칸 안쪽 여백만큼 당겨 글자 시작선을 본문·푸터와 맞춤 */
   }
+  .credits dl { display: block; }
   .credits dl > div {
     grid-template-columns: 13.889vw 1fr;
-    break-inside: avoid;
     padding-bottom: 1.111vw;
   }
   .credits dt, .credits dd { padding: 0.694vw; }
