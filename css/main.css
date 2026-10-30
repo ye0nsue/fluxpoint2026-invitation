@@ -215,7 +215,7 @@
   }
 
   .anim .campus-map .map-route { clip-path: inset(0 0 100% 0); }
-  .anim .campus-map.is-drawn .map-route { animation: map-route 1.6s ease-in-out 2s forwards; }
+  .anim .campus-map.is-drawn .map-route { animation: map-route 2s ease-in-out 2.5s forwards; }
 }
 @keyframes map-draw { to { stroke-dashoffset: 0; } }
 @keyframes map-fill { to { fill-opacity: 1; } }
