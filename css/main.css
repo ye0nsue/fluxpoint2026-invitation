@@ -223,8 +223,9 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
   /* 2단: 왼쪽 포스터(스크롤해도 따라옴) · 오른쪽 정보 */
   .body-grid {
     display: grid;
-    grid-template-columns: 483fr 585fr;
-    column-gap: 1.875vw;
+    /* 전시 사이트 About과 같은 비율: 포스터 441px, 포스터–본문 사이 83px */
+    grid-template-columns: 30.655vw 1fr;
+    column-gap: 5.784vw;
     align-items: start;
     margin-top: 3.611vw;
   }
@@ -241,7 +242,7 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
   }
   .intro-title + p { margin-top: 0; }
   .intro p { padding-inline: 0.694vw; text-indent: 0; }
-  .intro p + p { margin-top: 0; }
+  .intro p + p { margin-top: 0.833vw; }
   .accent-web { color: var(--red); }
 
   .info { padding-inline: 0.694vw; }
@@ -262,7 +263,7 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
   }
   .campus-map { grid-area: map; margin-top: 0; }
   .map-photo { grid-area: photo; margin-top: 0; aspect-ratio: 214.54 / 303.32; }
-  .notice { grid-area: notice; width: 40.07vw; font-size: 1.111vw; }
+  .notice { grid-area: notice; font-size: 1.111vw; }
 
   /* 웹사이트 입장 링크 */
   .enter-site .dotted { margin-top: 3.819vw; }
@@ -290,14 +291,14 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
   .credits dl {
     display: block;
     columns: 2;
-    column-gap: 5.556vw;
+    column-gap: 5.784vw;
   }
   .credits dl > div {
-    grid-template-columns: 14.583vw 1fr;
+    grid-template-columns: 13.889vw 1fr;
     break-inside: avoid;
-    padding-bottom: 0.972vw;
+    padding-bottom: 1.111vw;
   }
-  .credits dt, .credits dd { padding: 0.278vw 0; }
+  .credits dt, .credits dd { padding: 0.694vw; }
 
   /* 푸터 (Figma footer Default) */
   .footer {
