@@ -65,7 +65,21 @@
         </defs>
         <rect width="312" height="289.17" fill="url(#map-grid)"/>
       </svg>
-      <img class="map-route" src="assets/main/map-route.png" width="576" height="760" alt="" loading="lazy">
+      <!-- 점선 동선: 길을 따라 늘어나는 마스크로 조형1관 → 난향관 → 수정관 순서대로 드러냄 -->
+      <svg class="map-route" viewBox="0 0 576 760" aria-hidden="true">
+        <defs>
+          <mask id="route-mask">
+            <rect width="576" height="760" fill="#fff"/>
+            <g fill="none" stroke-width="14" stroke-linejoin="round">
+              <path d="M223 206 L223 226 L215 234 L171 230 L160 236 L136 286 L129 292 L127 302 L115 436 L128 541 L137 547 L205 535 L351 558 L366 569 L372 602 L380 621 L408 622" stroke="#000"/>
+              <path d="M132 289 L101 290" stroke="#000"/>
+              <path class="route-trace" d="M223 206 L223 226 L215 234 L171 230 L160 236 L136 286 L129 292 L127 302 L115 436 L128 541 L137 547 L205 535 L351 558 L366 569 L372 602 L380 621 L408 622" stroke="#fff" pathLength="1"/>
+              <path class="route-trace route-spur" d="M132 289 L101 290" stroke="#fff" pathLength="1"/>
+            </g>
+          </mask>
+        </defs>
+        <image href="assets/main/map-route.png" width="576" height="760" mask="url(#route-mask)"/>
+      </svg>
       <!-- 건물 드로잉(js/main.js): 외곽선이 그려지고 → 흰 면 → 마커. 순서 ▲ 조형1관 → ■ 난향관 → ● 수정관 -->
       <svg class="map-bld map-bld-tri" style="--t: 0.4s" viewBox="0 0 72.9314 82.9679" preserveAspectRatio="none" overflow="visible" aria-hidden="true">
         <path class="bld-ol" d="M4.95598 5.41313L21.7968 45.8445L12.5744 44.0735L9.60056 55.6683L3.28526 54.2649L2.0155 64.4897L10.7701 68.0985L15.6486 62.1507L17.4195 62.2844L24.47 66.0602L22.7658 71.2394L34.394 72.977L35.9311 70.2036L62.9633 79.6932L66.7057 80.963L67.4408 80.6288L70.9159 66.8956L40.6425 56.4703L41.6783 53.4296L34.8952 49.4198L15.8825 2.37242L14.88 2.00486L4.95598 5.41313Z" fill="white" stroke-width="0.76853" stroke-linejoin="round" stroke="#DC241B" pathLength="1"/>

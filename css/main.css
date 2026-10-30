@@ -72,7 +72,7 @@
   overflow: hidden;
 }
 .campus-map .grid { position: absolute; inset: 0; width: 100%; height: 100%; }
-.campus-map img, .campus-map .map-bld { position: absolute; max-width: none; }
+.campus-map img, .campus-map .map-route, .campus-map .map-bld { position: absolute; max-width: none; }
 .map-route   { left: 19.559%; top: 6.741%;  width: 60.986%; height: 86.829%; object-fit: cover; }
 .map-bld-tri { left: 31.012%; top: 5.613%;  width: 23.375%; height: 28.692%; }
 .map-bld-sq  { left: 18.818%; top: 30.802%; width: 13.687%; height: 45.602%; }
@@ -202,7 +202,7 @@
 .footer a:focus-visible { outline-color: #fff; }
 
 /* 배치도 드로잉 시퀀스 — js/main.js가 html.anim을 붙이고, 지도가 35% 보이면 .is-drawn
-   그리드(1.4s) → ▲ ■ ● 외곽선(0.5~0.7s 간격) → 흰 면 → 마커 → 점선 동선(위→아래 2.2s)
+   그리드(1.4s) → ▲ ■ ● 외곽선(0.5~0.7s 간격) → 흰 면 → 마커 → 점선 동선(길을 따라 3.6s)
    화면(screen)·동작 허용일 때만 숨김 상태를 걸어, 인쇄·동작 줄이기·스크립트 없음에서는 완성 상태로 보입니다. */
 @media screen and (prefers-reduced-motion: no-preference) {
   .anim .campus-map .grid { opacity: 0; transition: opacity 1.4s ease; }
@@ -219,8 +219,11 @@
     animation: map-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) calc(var(--t) + var(--d, 1.1s) * 0.91) forwards;
   }
 
-  .anim .campus-map .map-route { clip-path: inset(0 0 100% 0); }
-  .anim .campus-map.is-drawn .map-route { animation: map-route 3.2s cubic-bezier(0.25, 0.1, 0.25, 1) 2.5s forwards; }
+  /* 동선은 길이를 따라 일정한 속도로 그려짐 → 가로로 꺾이는 구간에서도 튀지 않음
+     난향관 갈림길(전체의 약 20%)에 닿으면 짧은 가지가 같은 속도로 이어짐 */
+  .anim .campus-map .route-trace { stroke-dasharray: 1; stroke-dashoffset: 1; }
+  .anim .campus-map.is-drawn .route-trace { animation: map-draw 3.6s linear 2.5s forwards; }
+  .anim .campus-map.is-drawn .route-spur { animation-duration: 0.15s; animation-delay: 3.23s; }
 }
 @keyframes map-draw { to { stroke-dashoffset: 0; } }
 @keyframes map-fill { to { fill-opacity: 1; } }
@@ -229,7 +232,6 @@
   60%  { opacity: 1; transform: scale(1.35); }
   100% { opacity: 1; transform: scale(1); }
 }
-@keyframes map-route { to { clip-path: inset(0 0 0 0); } }
 
 /* 동작 줄이기: 호버 확대 등 움직임도 끔 */
 @media (prefers-reduced-motion: reduce) {
