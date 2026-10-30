@@ -1,4 +1,4 @@
-/* 메인 화면 — 기본은 모바일(Figma "Mobile" 390px), 960px 이상은 웹(Figma "invitation web" 1440px).
+/* 메인 화면 — 기본은 모바일(Figma "Mobile" 390px), 695px 이상은 웹(Figma "invitation web" 1440px).
    Figma의 Haas Grotesk Display(체험판 폰트)는 웹에 쓸 수 없어 Inter로 대체했습니다. */
 .page {
   --ink: #1b191a;
@@ -194,14 +194,14 @@ html::-webkit-scrollbar { width: 6px; height: 6px; }
 html::-webkit-scrollbar-track { background: transparent; }
 html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
 
-/* ───────────── 웹 (960px 이상) ─────────────
-   Figma 1440px 프레임 기준 크기를 쓰고, 그보다 좁은 화면에서는 min(px, vw)로 같은 비율로 줄어듭니다.
-   (N px ↔ N/14.4 vw) */
-@media (min-width: 960px) {
+/* ───────────── 웹 (695px 이상) ─────────────
+   전시 사이트(fluxpoint2026.vercel.app/about)와 같은 방식: Figma 1440px 프레임을 기준으로
+   모든 크기를 vw로 잡아, 창 너비에 따라 화면 전체가 같은 비율로 커지고 줄어듭니다. (N px ↔ N/14.4 vw) */
+@media (min-width: 695px) {
   .page {
-    --wrap: min(1096px, 76.11vw);
+    --wrap: 76.11vw;
     max-width: none;
-    padding-top: 48px;      /* 상단 고정 팝업 높이 */
+    padding-top: 3.333vw;   /* 상단 고정 팝업 높이 */
     padding-bottom: 0;
   }
   .page > header,
@@ -214,40 +214,40 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
   }
 
   /* 상단: 로고 · 부제 · 점선 */
-  .hero { padding-top: min(117px, 8.125vw); }
+  .hero { padding-top: 8.125vw; }
   .hero-logo { margin-inline: 0; }
   .hero-logo img { width: 100%; }
-  .hero-sub { margin-top: min(56px, 3.889vw); font-size: min(40.788px, 2.833vw); }
-  .page .dotted { width: min(27.19px, 1.888vw); margin-top: min(12px, 0.833vw); }
+  .hero-sub { margin-top: 3.889vw; font-size: 2.833vw; }
+  .page .dotted { width: 1.888vw; margin-top: 0.833vw; }
 
   /* 2단: 왼쪽 포스터(스크롤해도 따라옴) · 오른쪽 정보 */
   .body-grid {
     display: grid;
     grid-template-columns: 483fr 585fr;
-    column-gap: min(27px, 1.875vw);
+    column-gap: 1.875vw;
     align-items: start;
-    margin-top: min(52px, 3.611vw);
+    margin-top: 3.611vw;
   }
-  .poster-col { position: sticky; top: calc(48px + min(24px, 1.667vw)); }
+  .poster-col { position: sticky; top: calc(3.333vw + 45px); }   /* 상단 팝업 아래 45px */
   .poster { margin-top: 0; }
-  .info-col { font-size: min(20px, 1.389vw); }
+  .info-col { font-size: 1.389vw; }
 
   .intro { margin-top: 0; }
   .intro-title {
-    padding: min(10px, 0.694vw);
+    padding: 0.694vw;
     color: var(--red);
-    font-size: min(22px, 1.528vw);
+    font-size: 1.528vw;
     line-height: 1.8;
   }
   .intro-title + p { margin-top: 0; }
-  .intro p { padding-inline: min(10px, 0.694vw); text-indent: 0; }
+  .intro p { padding-inline: 0.694vw; text-indent: 0; }
   .intro p + p { margin-top: 0; }
   .accent-web { color: var(--red); }
 
-  .info { padding-inline: min(10px, 0.694vw); }
-  .info-period { margin-top: min(50px, 3.472vw); }
-  .info-venue { margin-top: min(58px, 4.028vw); }
-  .info-route { margin-top: min(35px, 2.431vw); }
+  .info { padding-inline: 0.694vw; }
+  .info-period { margin-top: 3.472vw; }
+  .info-venue { margin-top: 4.028vw; }
+  .info-route { margin-top: 2.431vw; }
   .info h2 { font-size: inherit; }
   .info-route p + p { margin-top: 1.8em; }
 
@@ -256,57 +256,57 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
     display: grid;
     grid-template-columns: 327.26fr 214.54fr;
     grid-template-areas: "map photo" "notice notice";
-    column-gap: min(23.6px, 1.639vw);
-    max-width: min(565.4px, 39.26vw);
-    margin-top: min(15px, 1.042vw);
+    column-gap: 1.639vw;
+    max-width: 39.26vw;
+    margin-top: 1.042vw;
   }
   .campus-map { grid-area: map; margin-top: 0; }
   .map-photo { grid-area: photo; margin-top: 0; aspect-ratio: 214.54 / 303.32; }
-  .notice { grid-area: notice; width: min(577px, 40.07vw); font-size: min(16px, 1.111vw); }
+  .notice { grid-area: notice; width: 40.07vw; font-size: 1.111vw; }
 
   /* 웹사이트 입장 링크 */
-  .enter-site .dotted { margin-top: min(55px, 3.819vw); }
-  .site-preview { margin-top: min(52px, 3.611vw); aspect-ratio: 1094.78 / 621.44; }
-  .enter-small { margin-top: min(28px, 1.944vw); font-size: min(28.07px, 1.949vw); }
-  .enter-big { margin-top: min(29px, 2.014vw); font-size: min(42.1px, 2.924vw); }
+  .enter-site .dotted { margin-top: 3.819vw; }
+  .site-preview { margin-top: 3.611vw; aspect-ratio: 1094.78 / 621.44; }
+  .enter-small { margin-top: 1.944vw; font-size: 1.949vw; }
+  .enter-big { margin-top: 2.014vw; font-size: 2.924vw; }
 
   /* 인스타그램 */
   .ig {
-    gap: min(64px, 4.444vw);
-    height: min(129px, 8.958vw);
-    margin-top: min(124px, 8.611vw);
+    gap: 4.444vw;
+    height: 8.958vw;
+    margin-top: 8.611vw;
   }
   .ig .grid-web { display: block; }
   .ig .grid-mobile { display: none; }
-  .ig-mark { font-size: min(52.63px, 3.655vw); }
-  .ig a { font-size: min(42.1px, 2.924vw); line-height: normal; }
+  .ig-mark { font-size: 3.655vw; }
+  .ig a { font-size: 2.924vw; line-height: normal; }
 
   /* 크레딧: 2열 */
   .credits {
-    margin-top: min(120px, 8.333vw);
-    padding: min(80px, 5.556vw) calc((100% - var(--wrap)) / 2);
-    font-size: min(16px, 1.111vw);
+    margin-top: 8.333vw;
+    padding: 5.556vw calc((100% - var(--wrap)) / 2);
+    font-size: 1.111vw;
   }
   .credits dl {
     display: block;
     columns: 2;
-    column-gap: min(80px, 5.556vw);
+    column-gap: 5.556vw;
   }
   .credits dl > div {
-    grid-template-columns: min(210px, 14.583vw) 1fr;
+    grid-template-columns: 14.583vw 1fr;
     break-inside: avoid;
-    padding-bottom: min(14px, 0.972vw);
+    padding-bottom: 0.972vw;
   }
-  .credits dt, .credits dd { padding: min(4px, 0.278vw) 0; }
+  .credits dt, .credits dd { padding: 0.278vw 0; }
 
   /* 푸터 (Figma footer Default) */
   .footer {
-    gap: min(10px, 0.694vw);
-    min-height: min(200px, 13.889vw);
-    padding: min(20px, 1.389vw) calc((100% - var(--wrap)) / 2);
-    font-size: min(12.067px, 0.838vw);
+    gap: 0.694vw;
+    min-height: 13.889vw;
+    padding: 1.389vw calc((100% - var(--wrap)) / 2);
+    font-size: 0.838vw;
   }
-  .footer-title { margin-bottom: min(5px, 0.347vw) !important; font-size: min(14.48px, 1.006vw); }
+  .footer-title { margin-bottom: 0.347vw !important; font-size: 1.006vw; }
   .footer-copy { font-size: inherit; }
 
   /* 고정 팝업(웹: 상단) — 모바일 하단 팝업을 뒤집은 형태 */
@@ -314,11 +314,12 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
     top: 0;
     bottom: auto;
     width: 100%;
-    height: 48px;
+    height: 3.333vw;
+    box-sizing: border-box;   /* 빨간 선까지 포함한 높이 → 포스터 위 여백이 정확히 45px */
     padding-bottom: 0;
     border-top: 0;
     border-bottom: 1px solid var(--red);
   }
-  .enter-bar-dot { top: auto; bottom: -5px; width: 10px; }
-  .enter-bar a { font-size: 15px; }
+  .enter-bar-dot { top: auto; bottom: -0.347vw; width: 0.694vw; }
+  .enter-bar a { font-size: 1.042vw; }
 }
