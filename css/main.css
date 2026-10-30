@@ -286,7 +286,9 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
     align-items: start;
     margin-top: 3.611vw;
   }
-  .poster-col { position: sticky; top: calc(3.333vw + 45px); }   /* 상단 팝업 아래 45px */
+  /* 스크롤 중 포스터를 상단 팝업 아래 남은 화면의 세로 가운데에 고정 → 위아래 여백 동일
+     (포스터 높이 30.655vw × 441.15/312 = 43.345vw, 팝업 3.333vw). 창이 아주 낮으면 위 여백 최소 16px */
+  .poster-col { position: sticky; top: calc(3.333vw + max(16px, (100vh - 46.678vw) / 2)); }
   .poster { margin-top: 0; }
   .info-col { font-size: 1.389vw; }
 
