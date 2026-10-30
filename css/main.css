@@ -100,26 +100,12 @@
   font-weight: 600;
   line-height: normal;
 }
-.enter-big {
-  display: block;
-  width: fit-content;
-  margin: 8px auto 0;
-  font-size: 12px;
-  font-style: italic;
-  font-weight: 700;
-  line-height: normal;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
 
-/* 입장 링크 호버/포커스: 썸네일이 천천히 2.5% 확대(틀 밖은 잘림), 문구는 레드로 */
+/* 입장 링크 호버/포커스: 썸네일이 천천히 2.5% 확대(틀 밖은 잘림) */
 .site-preview:hover img,
 .site-preview:focus-visible img { transform: scale(1.025); }
-.enter-big:hover,
-.enter-big:focus-visible { color: var(--red); }
-/* 세 입장 링크 중 어디에 올려도 함께 반응 (:has 미지원 브라우저는 위 규칙만 적용되도록 따로 둠) */
+/* 두 입장 링크 중 어디에 올려도 함께 반응 (:has 미지원 브라우저는 위 규칙만 적용되도록 따로 둠) */
 .enter-site:has(a:hover, a:focus-visible) .site-preview img { transform: scale(1.025); }
-.enter-site:has(a:hover, a:focus-visible) .enter-big { color: var(--red); }
 
 /* 인스타그램 */
 .ig {
@@ -333,7 +319,6 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
   .enter-site .dotted { margin-top: 3.819vw; }
   .site-preview { margin-top: 3.611vw; aspect-ratio: 1094.78 / 621.44; }
   .enter-small { margin-top: 1.944vw; font-size: 1.949vw; }
-  .enter-big { margin-top: 2.014vw; font-size: 2.924vw; }
 
   /* 인스타그램 */
   .ig {
