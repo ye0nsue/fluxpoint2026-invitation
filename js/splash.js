@@ -2,6 +2,15 @@
   const root = document.getElementById("fpsplash");
   const PAGE_IMAGES_MAX_WAIT_MS = 6000;
   let hasEntered = false;
+  // 뒤로/앞으로 가기로 돌아왔을 때 브라우저가 기억해 둔 예전 화면(bfcache)을
+  // 보여주지 않고, 새로 불러와 최신 내용과 스플래시부터 다시 시작합니다.
+  window.addEventListener("pageshow", (e) => {
+      if (e.persisted)
+          location.reload();
+  });
+  // 새로고침·뒤로 가기 때 이전 스크롤 위치를 되살리지 않습니다.
+  if ("scrollRestoration" in history)
+      history.scrollRestoration = "manual";
 const $ = (s) => root.querySelector(s);
 const NS = "http://www.w3.org/2000/svg";
 const stage = $("#stage");
@@ -350,6 +359,8 @@ function endTrans(showFinal) {
     if (showFinal) {
         showMain(true);
         hasEntered = true;
+        // 스플래시가 걷히면 메인 화면은 항상 맨 위에서 시작합니다.
+        window.scrollTo(0, 0);
     }
     // Keep the page under the overlay pinned to the top until the reveal
     // has fully settled, then hand scrolling back to it.
