@@ -175,6 +175,7 @@
 .enter-bar-dot { position: absolute; top: -4px; left: 50%; width: 8px; transform: translateX(-50%); }
 .enter-bar a {
   color: var(--red);
+  text-decoration: none;
   font-size: 8px;
   font-weight: 600;
   line-height: normal;
