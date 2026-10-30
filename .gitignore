@@ -1,0 +1,7 @@
+.DS_Store
+.vercel
+node_modules
+*.icloud
+
+# 원본 스플래시(index.html + css/js/assets 로 옮김, 확인 후 삭제 가능)
+splash-html/

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Flux Point 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;900&family=Noto+Sans+KR:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/intro-photo.webp" as="image" fetchpriority="high">
+<link rel="stylesheet" href="css/splash.css">
+<link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<!-- 메인 화면: 스플래시 오버레이 아래에 미리 깔려 있다가, 입장 전환이 끝나면 드러납니다.
+     (Figma 디자인을 보고 채울 예정) -->
+<main class="page" id="main"></main>
+
+<!-- 스플래시: 화면 비율에 따라 웹(가로)·태블릿(compact)·모바일(세로) 레이아웃이 자동으로 바뀝니다. -->
+<div class="fpsplash" id="fpsplash">
+        <canvas class="trans" id="trans" aria-hidden="true"></canvas>
+
+        <div class="stage" id="stage" role="presentation">
+          <canvas class="layer" id="dots" aria-hidden="true"></canvas>
+          <svg class="layer" id="gridSvg" preserveAspectRatio="none" aria-hidden="true">
+            <g id="gridG"></g>
+          </svg>
+          <img class="photo" id="photo" alt="">
+          <svg class="layer" id="art" preserveAspectRatio="none" aria-hidden="true">
+            <g id="bldG"></g>
+          </svg>
+
+          <h1 class="title" id="title" role="button" tabindex="0" aria-label="Flux Point — 다시 보기"></h1>
+          <div class="legend" id="legend">
+            <p class="h" style="--d:3.60s">
+              Exhibition Hall
+            </p>
+            <p style="--d:3.68s">성신여자대학교 돈암수정캠퍼스</p>
+            <p style="--d:3.76s">
+              <i class="mk2 tri"></i>
+              조형 1관 S101
+            </p>
+            <p style="--d:4.00s">
+              <i class="mk2 sq"></i>
+              난향관 4F 파이룸(파이룸)
+            </p>
+            <p style="--d:4.25s">
+              <i class="mk2 dot"></i>
+              수정관 1F 가온갤러리
+            </p>
+            <p class="h gap" style="--d:4.50s">
+              Open Studio
+            </p>
+            <p style="--d:4.58s">
+              <i class="mk2 tri"></i>
+              조형 1관 6층 601호·606호
+            </p>
+          </div>
+          <div class="date" id="date" aria-label="2026.12.01. - 12.06."><span>2026.12.01.</span><span class="d2">- 12.06.</span></div>
+          <button class="enter" id="enter" type="button">
+            <span>탭하여 입장</span>
+          </button>
+        </div>
+</div>
+<script src="js/splash.js"></script>
+</body>
+</html>

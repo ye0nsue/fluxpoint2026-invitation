@@ -1,0 +1,103 @@
+  html, body { margin: 0; background: #fff; }
+  .fpsplash {
+    --paper: #ffffff;
+    --ink: #1b191a;
+    --legend: #515151;
+    --grid: #dc241b;
+    --stroke: #dc241b;
+    --fill: #fff;
+    --mark: #dc241b;
+    --band: #e52525;
+    --display: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+    --body: 'Inter', 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+    --fpsplash-ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --k: 0.72;
+    color-scheme: light;
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    height: 100dvh;
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    overflow: hidden;
+  }
+  .fpsplash.revealed { background: transparent; }
+  .fpsplash .stage.gone { visibility: hidden; }
+  .fpsplash .trans { position: absolute; inset: 0; z-index: 15; width: 100%; height: 100%; display: none; pointer-events: none; }
+  /* Once the reveal finishes the overlay steps aside entirely; the page
+     underneath (header, hero, footer) is already laid out in place. */
+  .fpsplash.entered { visibility: hidden; pointer-events: none; }
+
+  .fpsplash .stage { position: absolute; inset: 0; background: var(--paper); overflow: hidden; cursor: pointer; transition: transform 0.9s cubic-bezier(0.7, 0, 0.2, 1); }
+  .fpsplash .stage.leave { transform: translateY(-101%); }
+  .fpsplash .layer { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .fpsplash canvas.layer { pointer-events: none; }
+  .fpsplash .photo { position: absolute; left: 0; top: 0; max-width: none; display: block; pointer-events: none; }
+  .fpsplash svg.layer { overflow: visible; pointer-events: none; }
+
+  .fpsplash .gl { stroke: var(--grid); stroke-width: 0.5; stroke-dasharray: 1; stroke-dashoffset: 0; }
+  .fpsplash .go .gl { animation: fpsplash-draw 0.6s cubic-bezier(0.6, 0, 0.2, 1) var(--d, 0s) both; }
+
+  .fpsplash .bf { fill: var(--fill); }
+  .fpsplash .ol { fill: none; stroke: var(--stroke); stroke-width: 2.3; stroke-linejoin: round; stroke-dasharray: 1; stroke-dashoffset: 0; }
+  .fpsplash .mk { fill: var(--mark); transform-box: fill-box; transform-origin: center; }
+  .fpsplash .ring { fill: none; stroke: var(--mark); stroke-width: 1; vector-effect: non-scaling-stroke; stroke-linejoin: miter; stroke-miterlimit: 8; opacity: 0; transform-box: fill-box; transform-origin: center; }
+  .fpsplash .go .bf { animation: fpsplash-fade 0.6s ease-out var(--d, 0s) both; }
+  .fpsplash .go .ol { animation: fpsplash-draw var(--dur, 1.1s) cubic-bezier(0.6, 0, 0.2, 1) var(--d, 0s) both; }
+  .fpsplash .go .mk { animation: fpsplash-pop 0.55s cubic-bezier(0.2, 1.5, 0.4, 1) var(--d, 0s) both; }
+  .fpsplash .hol { fill: none; stroke: var(--mark); stroke-width: var(--ow, 1.6px); vector-effect: non-scaling-stroke; stroke-linejoin: miter; stroke-miterlimit: 8; opacity: 0; transform-box: fill-box; transform-origin: center; }
+  .fpsplash .go .hol { animation: fpsplash-pop 0.6s cubic-bezier(0.2, 1.5, 0.4, 1) var(--d, 0s) both; }
+  .fpsplash .go .ring { animation: fpsplash-ripple 1.9s cubic-bezier(0.15, 0.6, 0.25, 1) var(--d, 0s) forwards; }
+  @keyframes fpsplash-draw { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+  @keyframes fpsplash-fade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fpsplash-pop { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  @keyframes fpsplash-ripple { 0% { transform: scale(1); opacity: 0.9; } 100% { transform: scale(15); opacity: 0; } }
+
+  .fpsplash .photo { opacity: 1; }
+  .fpsplash .go .photo { animation: fpsplash-fade 1.5s ease-out 7.4s both; }
+
+  .fpsplash .title { position: absolute; margin: 0; line-height: 0; cursor: pointer; }
+  .fpsplash .title svg { display: block; width: 100%; height: auto; overflow: hidden; pointer-events: none; }
+  .fpsplash .title path { fill: var(--ink); fill-rule: evenodd; }
+  .fpsplash .title:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; }
+  @keyframes fpsplash-upsvg { from { transform: translateY(200px); } to { transform: translateY(0); } }
+  .fpsplash .go .title path { animation: fpsplash-upsvg 0.8s var(--fpsplash-ease-out) var(--d, 0s) both; }
+
+  .fpsplash .legend { position: absolute; left: calc(70px * var(--k)); bottom: calc(48px * var(--k)); margin: 0; color: var(--legend); font-size: max(12px, calc(21px * var(--k))); font-weight: 500; letter-spacing: -0.04em; line-height: 1.78; pointer-events: none; }
+  .fpsplash .legend p { margin: 0; display: flex; align-items: center; }
+  .fpsplash .legend .h { font-weight: 700; }
+  .fpsplash .legend .gap { margin-top: 1.78em; }
+  .fpsplash .legend .mk2 { display: inline-block; flex: none; width: 0.9em; margin-right: 0.28em; height: 0.82em; background: currentColor; }
+  .fpsplash .legend .tri { clip-path: polygon(50% 4%, 100% 96%, 0 96%); }
+  .fpsplash .legend .sq { width: 0.72em; height: 0.72em; margin-right: 0.46em; margin-left: 0.09em; }
+  .fpsplash .legend .dot { width: 0.8em; height: 0.8em; border-radius: 50%; margin-right: 0.38em; margin-left: 0.05em; }
+  .fpsplash .go .legend p { animation: fpsplash-rise 0.6s ease-out var(--d, 0s) both; }
+  @keyframes fpsplash-rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+  .fpsplash .date { -webkit-text-stroke: max(0.8px, calc(1.6px * var(--k))) #dc241b; paint-order: stroke fill; position: absolute; left: 0; top: 0; margin: 0; white-space: nowrap; pointer-events: none; font: 700 calc(84px * var(--k))/1 var(--display); letter-spacing: -0.01em; color: #fff; transform-origin: 0 0; transform: rotate(90deg); }
+  .fpsplash .date span { display: inline; }
+  .fpsplash .stage.mobile .date { color: #dc241b; transform: none; text-align: right; }
+  .fpsplash .stage.mobile .date span { display: block; }
+  .fpsplash .go .date { animation: fpsplash-fadein 0.8s ease-out 7.5s both; }
+  @keyframes fpsplash-fadein { from { opacity: 0; } to { opacity: 1; } }
+
+  .fpsplash .enter { position: absolute; right: calc(32px * var(--k)); bottom: calc(48px * var(--k)); appearance: none; border: 0; background: none; cursor: pointer; font: 600 max(12px, calc(22px * var(--k)))/1 var(--body); color: var(--ink); letter-spacing: 0.02em; padding: 10px 6px; }
+  .fpsplash .enter span { display: inline-block; border-bottom: 1px solid currentColor; padding-bottom: 3px; }
+  .fpsplash .go .enter { animation: fpsplash-rise 0.7s ease-out 8.1s both; }
+  .fpsplash .go .enter span { animation: fpsplash-pulse 1.8s ease-in-out 8.9s infinite; }
+  @keyframes fpsplash-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+  .fpsplash .enter:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+  .fpsplash .stage.compact .legend { left: max(16px, env(safe-area-inset-left, 0px)); bottom: 4vh; font-size: 13px; }
+  .fpsplash .stage.compact .enter { right: 12px; bottom: 4vh; }
+  .fpsplash .stage.mobile .legend { left: calc(50px * var(--k)); bottom: calc(37px * var(--k)); font-size: max(11.5px, calc(21.3px * var(--k))); }
+  .fpsplash .stage.mobile .enter { right: calc(38px * var(--k)); bottom: calc(235px * var(--k)); }
+  /* 사진·폰트 로딩을 기다리는 동안(.go 전)에는 서버 HTML의 글자가 제자리 잡기 전 모습으로 보이지 않도록 숨김 */
+  .fpsplash .stage:not(.go) .photo, .fpsplash .stage:not(.go) .title, .fpsplash .stage:not(.go) .legend, .fpsplash .stage:not(.go) .date, .fpsplash .stage:not(.go) .enter { visibility: hidden; }
+  .fpsplash .skip *, .fpsplash .skip { animation-duration: 0.001s !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; }
+  @media (prefers-reduced-motion: reduce) {
+    .fpsplash .stage * { animation-duration: 0.001s !important; animation-delay: 0s !important; animation-iteration-count: 1 !important; }
+    .fpsplash .stage { transition: none; }
+  }
