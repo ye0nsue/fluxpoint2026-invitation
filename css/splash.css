@@ -83,7 +83,7 @@
   .fpsplash .go .date { animation: fpsplash-fadein 0.8s ease-out 7.5s both; }
   @keyframes fpsplash-fadein { from { opacity: 0; } to { opacity: 1; } }
 
-  .fpsplash .enter { position: absolute; right: calc(32px * var(--k)); bottom: calc(48px * var(--k)); appearance: none; border: 0; background: none; cursor: pointer; font: 600 max(12px, calc(22px * var(--k)))/1 var(--body); color: var(--ink); letter-spacing: 0.02em; padding: 10px 6px; }
+  .fpsplash .enter { position: absolute; right: calc(32px * var(--k)); bottom: calc(48px * var(--k)); appearance: none; border: 0; background: #fff; cursor: pointer; font: 600 max(12px, calc(22px * var(--k)))/1 var(--body); color: var(--ink); letter-spacing: 0.02em; padding: 10px; }  /* 붉은 사진 위에서도 읽히도록 흰 배경 */
   .fpsplash .enter span { display: inline-block; border-bottom: 1px solid currentColor; padding-bottom: 3px; }
   .fpsplash .go .enter { animation: fpsplash-rise 0.7s ease-out 8.1s both; }
   .fpsplash .go .enter span { animation: fpsplash-pulse 1.8s ease-in-out 8.9s infinite; }
