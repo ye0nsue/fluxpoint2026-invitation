@@ -129,7 +129,7 @@
 .ig .grid-web { display: none; }
 .ig-mark, .ig a { position: relative; }
 .ig-mark { width: 11px; height: 11px; flex: none; }   /* 인스타그램 아이콘 (IG 글자 크기 정도) */
-.ig a { font-size: 10px; font-weight: 400; line-height: 32px; text-decoration: none; transition: color 0.3s ease; }
+.ig a { font-size: 10px; font-weight: 500; line-height: 32px; text-decoration: none; transition: color 0.3s ease; }
 .ig a:hover, .ig a:focus-visible { color: var(--red); }
 
 /* 크레딧 */
