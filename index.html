@@ -65,14 +65,12 @@
         </defs>
         <rect width="312" height="289.17" fill="url(#map-grid)"/>
       </svg>
-      <!-- 점선 동선: 길을 따라 늘어나는 마스크로 조형1관 → 난향관 → 수정관 순서대로 드러냄 -->
+      <!-- 점선 동선: 점선만 보이게 가리고, 길을 따라 늘어나는 마스크로 조형1관 → 난향관 → 수정관 순서대로 드러냄 -->
       <svg class="map-route" viewBox="0 0 576 760" aria-hidden="true">
         <defs>
           <mask id="route-mask">
-            <rect width="576" height="760" fill="#fff"/>
+            <rect width="576" height="760" fill="#000"/>
             <g fill="none" stroke-width="14" stroke-linejoin="round">
-              <path d="M223 206 L223 226 L215 234 L171 230 L160 236 L136 286 L129 292 L127 302 L115 436 L128 541 L137 547 L205 535 L351 558 L366 569 L372 602 L380 621 L408 622" stroke="#000"/>
-              <path d="M132 289 L101 290" stroke="#000"/>
               <path class="route-trace" d="M223 206 L223 226 L215 234 L171 230 L160 236 L136 286 L129 292 L127 302 L115 436 L128 541 L137 547 L205 535 L351 558 L366 569 L372 602 L380 621 L408 622" stroke="#fff" pathLength="1"/>
               <path class="route-trace route-spur" d="M132 289 L101 290" stroke="#fff" pathLength="1"/>
             </g>
