@@ -44,12 +44,14 @@
 .poster { width: 100%; margin-top: 8px; aspect-ratio: 312 / 441.15; object-fit: cover; }
 
 /* 전시 서문 */
-.intro {
-  margin-top: 32px;
-  /* About 페이지 서문과 같은 굵기로 보이도록 (Tailwind antialiased와 동일) */
+/* 서문·전시 정보: About 페이지 서문과 같은 굵기로 보이도록 (Tailwind antialiased와 동일)
+   단, 정보 제목(전시 기간·전시 장소·오시는 길)은 원래 굵기 유지 */
+.intro, .info {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+.info h2 { -webkit-font-smoothing: auto; -moz-osx-font-smoothing: auto; }
+.intro { margin-top: 32px; }
 .intro-title { font-size: 16px; font-weight: 700; line-height: normal; }
 .intro-title + p { margin-top: 4px; }
 .intro p { text-align: justify; text-indent: 0.3em; }
