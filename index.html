@@ -15,18 +15,32 @@
 <!-- 메인 화면(모바일 초대장): 스플래시 오버레이 아래에 미리 깔려 있다가, 입장 전환이 끝나면 드러납니다. -->
 <main class="page" id="main">
   <header class="hero">
-    <h1 class="hero-logo"><img src="assets/main/logo-flux-point.svg" width="326" height="54" alt="Flux Point"></h1>
+    <h1 class="hero-logo">
+      <picture>
+        <source media="(min-width: 960px)" srcset="assets/main/logo-flux-point-web.svg" width="1097" height="181">
+        <img src="assets/main/logo-flux-point.svg" width="326" height="54" alt="Flux Point">
+      </picture>
+    </h1>
     <p class="hero-sub">2026 Sungshin Women’s University<br>Department of Painting Graduation Exhibition</p>
-    <img class="dotted" src="assets/main/dotted-line.svg" width="8" height="65" alt="">
-    <img class="poster" src="assets/main/poster.jpg" width="936" height="1323" alt="Flux Point 2026 전시 포스터">
+    <picture>
+      <source media="(min-width: 960px)" srcset="assets/main/dotted-line-web.svg" width="27" height="222">
+      <img class="dotted" src="assets/main/dotted-line.svg" width="8" height="65" alt="">
+    </picture>
   </header>
 
+  <!-- 모바일: 포스터 아래로 정보가 이어짐 / 웹: 왼쪽 포스터(고정) + 오른쪽 정보 2단 -->
+  <div class="body-grid">
+  <div class="poster-col">
+    <img class="poster" src="assets/main/poster.jpg" width="936" height="1323" alt="Flux Point 2026 전시 포스터">
+  </div>
+
+  <div class="info-col">
   <section class="intro">
     <h2 class="intro-title">⟪Flux Point⟫</h2>
     <p>시공간의 무수한 흐름 속에서 마주한 개개인의 좌표들은 서로의 궤적을 공유하며 하나의 유동적 흐름, 플럭스(Flux)를 형성한다. 올해로 63년의 연혁을 맞이한 성신여자대학교 미술대학의 역사는 이 자리에서 수많은 주체들이 교차하며 남긴 흔적의 총합이다. 이번 전시는 대학이라는 제도적 울타리를 벗어나, 독립된 창작자로서 첫 발을 내딛는 32명 작가들의 전환점(Flux Point)을 기록한다.</p>
     <p>유동하는 좌표의 형상은 자칫 불안정한 상태로 비칠 수 있다. 그러나 1960년대 예술의 고정된 형식을 해체하고 삶과 창작의 경계를 허물었던 전위 예술 운동 플럭서스(Fluxus)가 보여주었듯, 고정되지 않은 흐름이야말로 시스템을 전복하는 예술적 에너지의 근원이다.</p>
     <p>이러한 플럭서스의 전복적인 에너지는 캠퍼스 내 경계를 허물고, 세 곳의 건물에서 동시다발적으로 전개된다. 이로써 이곳의 이미지들은 고정된 화이트 큐브의 완결성을 탈피하며, 끊임없이 요동치는 가변적 존재로서 작동한다.</p>
-    <p>세 개의 좌표로 분포된 작품들은 관람객이 물리적 공간을 이동하며 수행하는 시선의 교차와 발걸음, 그 틈새에서 발생하는 마찰을 통해 비로소 하나의 지도로 엮인다. 여기에 모인 작품들은 변화해 나갈 예술적 사유 한가운데 위치한 감각의 지표이자 예술적 탐구의 방향성을 지시하는 이정표이다. 「 Flux Point 」는 이 유동적인 흐름이 교차하고 충돌하며 만들어내는 상태 속의 기록이며, 동시에 기존의 경계를 넘어 각자의 새로운 궤적을 향해 나아가는 출발점이 된다.</p>
+    <p>세 개의 좌표로 분포된 작품들은 관람객이 물리적 공간을 이동하며 수행하는 시선의 교차와 발걸음, 그 틈새에서 발생하는 마찰을 통해 비로소 하나의 지도로 엮인다. 여기에 모인 작품들은 변화해 나갈 예술적 사유 한가운데 위치한 감각의 지표이자 예술적 탐구의 방향성을 지시하는 이정표이다. <span class="accent-web">「 Flux Point 」</span>는 이 유동적인 흐름이 교차하고 충돌하며 만들어내는 상태 속의 기록이며, 동시에 기존의 경계를 넘어 각자의 새로운 궤적을 향해 나아가는 출발점이 된다.</p>
   </section>
 
   <section class="info info-period">
@@ -41,6 +55,7 @@
       <span class="accent">■&#xFE0E;</span> 난향관 4F 파이룸 (π룸)<br>
       <span class="accent">▲</span> 조형1관 1F S101 / 6F 601호, 606호</p>
 
+    <div class="map-block">
     <figure class="campus-map">
       <svg class="grid" viewBox="0 0 312 289.17" preserveAspectRatio="none" aria-hidden="true">
         <defs>
@@ -58,6 +73,7 @@
     </figure>
     <p class="notice">*교내 안전상의 이유로 전시장 제외 모든 건물의 1층 외에는 외부인의 출입이 어려우니, 관람 시 이 점 유의 부탁드립니다.</p>
     <img class="map-photo" src="assets/main/map-photo.jpg" width="870" height="1230" alt="성신여자대학교 돈암수정캠퍼스 전시장 위치 지도" loading="lazy">
+    </div>
   </section>
 
   <section class="info info-route">
@@ -65,9 +81,14 @@
     <p>버스<br>성신여대 입구 - 101, 102, 103, 104, 106, 107, 140, 142, 143, 149, 150, 152, 160, 161, 162, 171, 172, 1162, 1212<br>성북구청 입구 - 103, 142, 152, 272, 1014, 1111</p>
     <p>지하철<br>4호선 성신여대입구역 1,2번 출구 또는<br>6호선 보문역 4번 출구에서 하차 후 도보로 약 10분 이동</p>
   </section>
+  </div>
+  </div>
 
   <section class="enter-site">
-    <img class="dotted" src="assets/main/dotted-line.svg" width="8" height="65" alt="" loading="lazy">
+    <picture>
+      <source media="(min-width: 960px)" srcset="assets/main/dotted-line-web.svg" width="27" height="222">
+      <img class="dotted" src="assets/main/dotted-line.svg" width="8" height="65" alt="" loading="lazy">
+    </picture>
     <a class="site-preview" href="https://fluxpoint2026.vercel.app/" target="_blank" rel="noopener">
       <img src="assets/main/site-preview.jpg" width="936" height="608" alt="Flux Point 2026 졸업전시 웹사이트 미리보기" loading="lazy">
     </a>
@@ -76,7 +97,15 @@
   </section>
 
   <div class="ig">
-    <svg class="grid" aria-hidden="true">
+    <svg class="grid grid-web" viewBox="0 0 1095 129" preserveAspectRatio="none" aria-hidden="true">
+      <defs>
+        <pattern id="ig-grid-web" x="-38.06" y="-59.88" width="26.612" height="25.88" patternUnits="userSpaceOnUse">
+          <rect width="26.612" height="25.88" fill="none" stroke="#dc241b" stroke-width="0.313"/>
+        </pattern>
+      </defs>
+      <rect width="1095" height="129" fill="url(#ig-grid-web)"/>
+    </svg>
+    <svg class="grid grid-mobile" aria-hidden="true">
       <defs>
         <pattern id="ig-grid" x="-123.63" y="-42.42" width="12.324" height="11.985" patternUnits="userSpaceOnUse">
           <rect width="12.324" height="11.985" fill="none" stroke="#dc241b" stroke-width="0.29"/>
@@ -116,7 +145,7 @@
     <p class="footer-copy">© 2026 성신여자대학교 서양화과 졸업전시위원회.</p>
   </footer>
 
-  <!-- 하단 고정 팝업: 스크롤해도 화면 아래에 붙어 있는 전시 사이트 입장 링크 -->
+  <!-- 고정 팝업: 모바일은 화면 하단, 웹은 화면 상단에 붙어 있는 전시 사이트 입장 링크 -->
   <nav class="enter-bar" aria-label="전시 사이트 바로가기">
     <img class="enter-bar-dot" src="assets/main/dot.svg" width="8" height="8" alt="">
     <a href="https://fluxpoint2026.vercel.app/" target="_blank" rel="noopener">2026 성신여자대학교 서양화과 졸업 전시 입장하기</a>
