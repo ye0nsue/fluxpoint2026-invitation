@@ -44,7 +44,12 @@
 .poster { width: 100%; margin-top: 8px; aspect-ratio: 312 / 441.15; object-fit: cover; }
 
 /* 전시 서문 */
-.intro { margin-top: 32px; }
+.intro {
+  margin-top: 32px;
+  /* About 페이지 서문과 같은 굵기로 보이도록 (Tailwind antialiased와 동일) */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 .intro-title { font-size: 16px; font-weight: 700; line-height: normal; }
 .intro-title + p { margin-top: 4px; }
 .intro p { text-align: justify; text-indent: 0.3em; }
