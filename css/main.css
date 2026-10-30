@@ -328,8 +328,9 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
 
   /* 웹사이트 입장 링크 */
   .enter-site .dotted { margin-top: 3.819vw; }
-  .site-preview { margin-top: 3.611vw; aspect-ratio: 1094.78 / 621.44; }
-  .enter-small { margin-top: 1.944vw; font-size: 1.949vw; }
+  /* 썸네일·입장 버튼: 화면 가득(76vw) 대신 50vw로 줄여 가운데 배치 */
+  .site-preview { width: 50vw; margin: 3.611vw auto 0; aspect-ratio: 1094.78 / 621.44; }
+  .enter-small { margin-top: 1.389vw; font-size: 1.389vw; }
 
   /* 인스타그램 */
   .ig {
