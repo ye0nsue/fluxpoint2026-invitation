@@ -34,8 +34,8 @@
      (레드가 contrast 2.02에서 #1b 근처의 검정, 흰색은 그대로 흰색) */
   .fpsplash.mono { --grid: #1b191a; --stroke: #1b191a; --mark: #1b191a; --band: #1b191a; --date: #1b191a; }
   .fpsplash.mono .photo { filter: grayscale(1) contrast(2.02); }
-  /* 회색: 스플래시 화면 전체에 흑백 필터 + 건물 외곽선·도형(▲■●)만 블랙(#1b191a) */
-  .fpsplash.gray { --stroke: #1b191a; --mark: #1b191a; }
+  /* 회색: 스플래시 화면 전체에 흑백 필터 + 건물 외곽선·도형(▲■●)·왼쪽 아래 안내 글씨는 블랙(#1b191a) */
+  .fpsplash.gray { --stroke: #1b191a; --mark: #1b191a; --legend: #1b191a; }
   .fpsplash.gray .stage, .fpsplash.gray .trans { filter: grayscale(1); }
   /* 비교용 컬러/모노 전환 버튼 */
   .fpsplash .tone { position: absolute; top: max(12px, env(safe-area-inset-top, 0px)); left: 50%; z-index: 20; transform: translateX(-50%); display: flex; border: 1px solid var(--ink); background: var(--paper); }
