@@ -16,3 +16,24 @@
     }, { threshold: 0.35 });
     io.observe(map);
 })();
+
+// 전시 사이트 제작 중 팝업: 입장 링크를 누르면 썸네일 위 Coming Soon 팝업을 잠시 보여 줍니다.
+// 호버/포커스 표시는 css/main.css가 맡습니다. 상단(모바일은 하단) 고정 바는 썸네일로 이동한 뒤 띄웁니다.
+(function () {
+    const preview = document.querySelector(".site-preview");
+    if (!preview)
+        return;
+    let timer;
+    document.querySelectorAll('a[href="#site-preview"]').forEach((link) => {
+        link.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (link.closest(".enter-bar")) {
+                const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+                preview.scrollIntoView({ block: "center", behavior: reduce ? "auto" : "smooth" });
+            }
+            preview.classList.add("is-open");
+            clearTimeout(timer);
+            timer = setTimeout(() => preview.classList.remove("is-open"), 2500);
+        });
+    });
+})();

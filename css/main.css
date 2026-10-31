@@ -91,7 +91,15 @@
 
 /* 웹사이트 입장 링크 */
 .enter-site { text-align: center; }
-.site-preview { display: block; margin-top: 8px; aspect-ratio: 312 / 177.1; overflow: hidden; }
+.site-preview {
+  position: relative;
+  display: block;
+  margin-top: 8px;
+  aspect-ratio: 312 / 177.1;
+  overflow: hidden;
+  box-shadow: 0 0 6.5px rgba(220, 36, 27, calc(var(--soon, 0) * 0.5));
+  transition: box-shadow 0.3s ease;
+}
 .site-preview img {
   width: 100%; height: 100%; object-fit: cover; object-position: bottom;
   transform-origin: 50% 100%;
@@ -112,6 +120,26 @@
 .site-preview:focus-visible img { transform: scale(1.025); }
 /* 두 입장 링크 중 어디에 올려도 함께 반응 (:has 미지원 브라우저는 위 규칙만 적용되도록 따로 둠) */
 .enter-site:has(a:hover, a:focus-visible) .site-preview img { transform: scale(1.025); }
+
+/* 사이트 제작 중 팝업: 호버/포커스 또는 클릭(.is-open, js/main.js)일 때 썸네일 위에 표시 */
+.coming-soon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: normal;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(220, 36, 27, 0.8));
+  opacity: var(--soon, 0);
+  transition: opacity 0.3s ease;
+}
+.site-preview:hover,
+.site-preview:focus-visible,
+.site-preview.is-open { --soon: 1; }
+.enter-site:has(a:hover, a:focus-visible) .site-preview { --soon: 1; }
 
 /* 인스타그램 */
 .ig {
@@ -238,6 +266,7 @@
 /* 동작 줄이기: 호버 확대 등 움직임도 끔 */
 @media (prefers-reduced-motion: reduce) {
   .site-preview img { transition: none; transform: none !important; }
+  .site-preview, .coming-soon { transition: none; }
 }
 
 /* 인쇄: 고정 팝업은 빼고 모든 요소를 완성 상태로 */
@@ -331,6 +360,7 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
   /* 썸네일·입장 버튼: 화면 가득(76vw) 대신 50vw로 줄여 가운데 배치 */
   .site-preview { width: 50vw; margin: 3.611vw auto 0; aspect-ratio: 1094.78 / 621.44; }
   .enter-small { margin-top: 1.389vw; font-size: 1.389vw; }
+  .coming-soon { font-size: 1.905vw; }
 
   /* 인스타그램 */
   /* 입장하기 문구보다 짧은 작은 버튼 크기 (350×62 @1440) */
