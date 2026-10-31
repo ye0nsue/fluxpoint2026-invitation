@@ -337,7 +337,6 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
   .intro-title + p { margin-top: 0; }
   .intro p { padding-inline: 0.694vw; text-indent: 0; }
   .intro p + p { margin-top: 0.833vw; }
-  .accent-web { color: var(--red); }
 
   .info { padding-inline: 0.694vw; }
   .info-period { margin-top: 3.472vw; }
