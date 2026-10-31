@@ -37,8 +37,8 @@
   /* 회색: 스플래시 화면 전체에 흑백 필터 + 건물 외곽선·도형(▲■●)·왼쪽 아래 안내 글씨는 블랙(#1b191a) */
   .fpsplash.gray { --stroke: #1b191a; --mark: #1b191a; --legend: #1b191a; }
   .fpsplash.gray .stage, .fpsplash.gray .trans { filter: grayscale(1); }
-  /* 회색: 배경 이미지(사진 실루엣·항공사진)를 더 밝은 회색으로 (레드 → 약 #8c8c8c) */
-  .fpsplash.gray #dots, .fpsplash.gray .photo { filter: brightness(1.8); }
+  /* 밝은 회색: 회색 + 배경 이미지(사진 실루엣·항공사진)를 더 밝은 회색으로 (레드 → 약 #8c8c8c) */
+  .fpsplash.light #dots, .fpsplash.light .photo { filter: brightness(1.8); }
   /* 비교용 컬러/모노 전환 버튼 */
   .fpsplash .tone { position: absolute; top: max(12px, env(safe-area-inset-top, 0px)); left: 50%; z-index: 20; transform: translateX(-50%); display: flex; border: 1px solid var(--ink); background: var(--paper); }
   .fpsplash .tone button { appearance: none; border: 0; margin: 0; padding: 6px 12px; background: none; color: var(--ink); font: 600 12px/1 var(--body); cursor: pointer; }

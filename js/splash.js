@@ -515,18 +515,20 @@ const fontsReady = new Promise((resolve) => {
 });
 Promise.all([photoReady, fontsReady]).then(go);
 
-// 비교용 컬러/모노/회색 전환: 모노는 레드를 블랙(#1b191a)으로, 회색은 흑백 필터만(css/splash.css .fpsplash.mono / .gray).
+// 비교용 컬러/모노/회색/밝은 회색 전환: 모노는 레드를 블랙(#1b191a)으로, 회색은 흑백 필터,
+// 밝은 회색은 회색 + 배경 이미지를 밝게(css/splash.css .fpsplash.mono / .gray / .light).
 // 마지막 선택은 이 브라우저에만 기억합니다.
 const toneBtns = root.querySelectorAll(".tone button");
 const setTone = (tone) => {
     root.classList.toggle("mono", tone === "mono");
-    root.classList.toggle("gray", tone === "gray");
+    root.classList.toggle("gray", tone === "gray" || tone === "light");
+    root.classList.toggle("light", tone === "light");
     toneBtns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.tone === tone)));
     try { localStorage.setItem("fpsplash-tone", tone); } catch (e) {}
     if (done)
         finish();   // 다 그려진 사진 실루엣도 새 색으로 다시 칠함
 };
 toneBtns.forEach((b) => b.addEventListener("click", () => setTone(b.dataset.tone)));
-try { const saved = localStorage.getItem("fpsplash-tone"); if (saved === "mono" || saved === "gray") setTone(saved); } catch (e) {}
+try { const saved = localStorage.getItem("fpsplash-tone"); if (saved === "mono" || saved === "gray" || saved === "light") setTone(saved); } catch (e) {}
 
 })();
