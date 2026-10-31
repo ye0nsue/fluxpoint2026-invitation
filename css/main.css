@@ -141,8 +141,9 @@
   .enter-site:has(a:hover) .site-preview { --soon: 1; }
 }
 .site-preview.is-open { --soon: 1; }
-/* 링크를 잠시 해제한 동안 입장 문구 위 커서는 기본 화살표로 */
-.enter-small, .enter-bar a { cursor: default; }
+/* 링크를 잠시 해제한 동안 입장 문구 위 커서는 기본 화살표로 (고정 바는 눌러서 썸네일로 이동) */
+.enter-small { cursor: default; }
+.enter-bar a { cursor: pointer; }
 
 /* 인스타그램 */
 .ig {

@@ -18,7 +18,7 @@
 })();
 
 // 전시 사이트 제작 중 팝업: 호버가 없는 터치 기기에서는 입장 링크를 탭하면 잠시 보여 줍니다.
-// (PC의 호버 표시는 css/main.css가 맡습니다.) 하단 고정 바는 썸네일로 이동한 뒤 띄웁니다.
+// (PC의 호버 표시는 css/main.css가 맡습니다.) 고정 바는 PC에서도 썸네일로 이동한 뒤 띄웁니다.
 (function () {
     const preview = document.querySelector(".site-preview");
     if (!preview)
@@ -26,9 +26,10 @@
     let timer;
     document.querySelectorAll(".site-preview, .enter-small, .enter-bar a").forEach((link) => {
         link.addEventListener("click", () => {
-            if (!window.matchMedia("(hover: none)").matches)
+            const isBar = link.closest(".enter-bar");
+            if (!isBar && !window.matchMedia("(hover: none)").matches)
                 return;
-            if (link.closest(".enter-bar")) {
+            if (isBar) {
                 const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
                 preview.scrollIntoView({ block: "center", behavior: reduce ? "auto" : "smooth" });
             }
