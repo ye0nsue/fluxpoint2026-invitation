@@ -159,6 +159,9 @@ function layout() {
     const mob = W / H < 0.62, compact = !mob && W / H < 1.35;
     let k = W / 2000;
     const km = W / 780;
+    // 세로가 짧은 모바일 화면(디자인 기준 높이 1690보다 낮음): 날짜가 화면 밖으로 밀려나고
+    // ■건물이 왼쪽 아래 안내와 겹침 → 건물을 20px 올리고 날짜를 '탭하여 입장' 아래로 옮김
+    const short = mob && H < 1690 * km;
     stage.classList.toggle("compact", compact);
     stage.classList.toggle("mobile", mob);
     if (mob)
@@ -198,7 +201,7 @@ function layout() {
     });
     let tf;
     if (mob)
-        tf = "scale(" + km + ")";
+        tf = (short ? "translate(0 -20) " : "") + "scale(" + km + ")";
     else if (!compact)
         tf = "scale(" + k + ")";
     else {
@@ -230,7 +233,7 @@ function layout() {
         dt.style.fontSize = f2 + "px";
         const wd = dt.getBoundingClientRect().width;
         dt.style.left = 746 * km + 0.07 * f2 - wd + "px";
-        dt.style.top = 1573 * km - 1.089 * f2 + "px";
+        dt.style.top = (short ? H - 235 * km + 14 * km : 1573 * km - 1.089 * f2) + "px";
     }
     else {
         const kk = W / 2000;
