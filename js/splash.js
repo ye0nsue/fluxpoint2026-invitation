@@ -36,8 +36,8 @@ const PH = {
     ],
 };
 // 하프톤 점(사진 실루엣이 퍼질 때·입장 전환)의 색: 이전 회색(레드+흑백 필터 ≈ #4e4e4e)과
-// 블랙(#1b191a)의 중간인 조금 진한 회색
-const HALFTONE = "#343434";
+// 블랙(#1b191a) 사이의 회색 (중간보다 조금 연하게)
+const HALFTONE = "#404040";
 let gridStart = 4.6;
 const WAVE_START = 5500;
 const WAVE_DUR = 1900;
