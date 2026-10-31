@@ -121,7 +121,7 @@
 /* 두 입장 링크 중 어디에 올려도 함께 반응 (:has 미지원 브라우저는 위 규칙만 적용되도록 따로 둠) */
 .enter-site:has(a:hover, a:focus-visible) .site-preview img { transform: scale(1.025); }
 
-/* 사이트 제작 중 팝업: 호버/포커스 또는 클릭(.is-open, js/main.js)일 때 썸네일 위에 표시 */
+/* 사이트 제작 중 팝업: PC는 마우스 호버, 터치 기기는 탭(.is-open, js/main.js)일 때 썸네일 위에 표시 */
 .coming-soon {
   position: absolute;
   inset: 0;
@@ -136,10 +136,13 @@
   opacity: var(--soon, 0);
   transition: opacity 0.3s ease;
 }
-.site-preview:hover,
-.site-preview:focus-visible,
+@media (hover: hover) {
+  .site-preview:hover { --soon: 1; }
+  .enter-site:has(a:hover) .site-preview { --soon: 1; }
+}
 .site-preview.is-open { --soon: 1; }
-.enter-site:has(a:hover, a:focus-visible) .site-preview { --soon: 1; }
+/* 링크를 잠시 해제한 동안 입장 문구 위 커서는 기본 화살표로 */
+.enter-small, .enter-bar a { cursor: default; }
 
 /* 인스타그램 */
 .ig {

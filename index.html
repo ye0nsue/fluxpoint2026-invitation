@@ -112,13 +112,13 @@
       <source media="(min-width: 695px)" srcset="assets/main/dotted-line-web.svg" width="27" height="222">
       <img class="dotted" src="assets/main/dotted-line.svg" width="8" height="65" alt="" loading="lazy">
     </picture>
-    <!-- 전시 사이트 제작 중: 입장 링크 3곳은 임시로 #site-preview를 가리키고, 누르면 js/main.js가 팝업을 띄웁니다.
-         공개할 때는 href를 https://fluxpoint2026.vercel.app/ (target="_blank" rel="noopener")로 되돌리면 됩니다. -->
-    <a class="site-preview" id="site-preview" href="#site-preview" aria-describedby="coming-soon">
+    <!-- 전시 사이트 제작 중: 입장 링크 3곳은 임시로 href를 뺐습니다(PC는 호버, 터치 기기는 탭할 때 팝업 표시).
+         공개할 때는 세 곳에 href="https://fluxpoint2026.vercel.app/" target="_blank" rel="noopener"를 되돌리고 js/main.js의 팝업 코드를 지우면 됩니다. -->
+    <a class="site-preview">
       <img src="assets/main/site-preview.jpg" srcset="assets/main/site-preview.jpg 936w, assets/main/site-preview-1400.jpg 1400w, assets/main/site-preview-2200.jpg 2200w" sizes="(min-width: 695px) 50vw, 80vw" width="936" height="608" alt="Flux Point 2026 졸업전시 웹사이트 미리보기" loading="lazy">
-      <span class="coming-soon" id="coming-soon">Coming Soon.</span>
+      <span class="coming-soon">Coming Soon.</span>
     </a>
-    <a class="enter-small" href="#site-preview" aria-describedby="coming-soon">▲&#xFE0E; 2026 성신여자대학교 서양화과 졸업 전시 입장하기</a>
+    <a class="enter-small">▲&#xFE0E; 2026 성신여자대학교 서양화과 졸업 전시 입장하기</a>
   </section>
 
   <div class="ig">
@@ -182,7 +182,7 @@
   <!-- 고정 팝업: 모바일은 화면 하단, 웹은 화면 상단에 붙어 있는 전시 사이트 입장 링크 -->
   <nav class="enter-bar" aria-label="전시 사이트 바로가기">
     <img class="enter-bar-dot" src="assets/main/dot.svg" width="8" height="8" alt="">
-    <a href="#site-preview" aria-describedby="coming-soon">2026 성신여자대학교 서양화과 졸업 전시 입장하기</a>
+    <a>2026 성신여자대학교 서양화과 졸업 전시 입장하기</a>
   </nav>
 </main>
 
