@@ -160,7 +160,7 @@ function layout() {
     let k = W / 2000;
     const km = W / 780;
     // 세로가 짧은 모바일 화면(디자인 기준 높이 1690보다 낮음): 날짜가 화면 밖으로 밀려나고
-    // ■건물이 왼쪽 아래 안내와 겹침 → 건물을 20px 올리고 날짜를 '탭하여 입장' 아래로 옮김
+    // ■건물이 왼쪽 아래 안내와 겹침 → 건물을 0.98로 줄여 20px 올리고 날짜를 '탭하여 입장' 아래로 옮김
     const short = mob && H < 1690 * km;
     stage.classList.toggle("compact", compact);
     stage.classList.toggle("mobile", mob);
@@ -194,8 +194,15 @@ function layout() {
     photo.style.height = box.h + "px";
     const MT = [[-592.7, 113.6], [-594.4, 124.6], [-594.8, 125.4], [-775.2, 121.3]];
     Array.prototype.forEach.call(bldG.children, (g, i) => {
-        if (mob && MT[i])
-            g.setAttribute("transform", "translate(" + MT[i][0] + " " + MT[i][1] + ") scale(0.979)");
+        if (mob && MT[i]) {
+            let t = "translate(" + MT[i][0] + " " + MT[i][1] + ") scale(0.979)";
+            // 세로가 짧은 모바일: 건물마다 제자리(자기 중심)에서 0.98로 살짝 축소
+            if (short) {
+                const b = g.getBBox(), cx = b.x + b.width / 2, cy = b.y + b.height / 2;
+                t += " translate(" + cx + " " + cy + ") scale(0.98) translate(" + -cx + " " + -cy + ")";
+            }
+            g.setAttribute("transform", t);
+        }
         else
             g.removeAttribute("transform");
     });
