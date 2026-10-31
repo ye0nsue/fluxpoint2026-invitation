@@ -51,6 +51,9 @@
   .fpsplash .layer { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
   .fpsplash canvas.layer { pointer-events: none; }
   .fpsplash .photo { position: absolute; left: 0; top: 0; max-width: none; display: block; pointer-events: none; }
+  /* 모바일: 제목(Flux Point) 뒤 배경 이미지를 위에서 아래로 살짝 밝게 빼는 흰색 그라데이션 (건물·제목보다 아래) */
+  .fpsplash .title-fade { display: none; }
+  .fpsplash .stage.mobile .title-fade { display: block; position: absolute; left: 0; right: 0; top: 0; height: calc(460px * var(--k)); background: linear-gradient(to bottom, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0.55) 45%, rgba(255, 255, 255, 0) 100%); pointer-events: none; }
   .fpsplash svg.layer { overflow: visible; pointer-events: none; }
 
   .fpsplash .gl { stroke: var(--grid); stroke-width: 0.5; stroke-dasharray: 1; stroke-dashoffset: 0; }
