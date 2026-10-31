@@ -35,8 +35,8 @@ const PH = {
         10.0, 10.0, 5.0, 0.0, 19.0, 284.0, 958.0, 897.0, 913.0, 938.0,
     ],
 };
-// 사진 실루엣·띠·전환 점 색 (스플래시 전체 흑백 필터로 회색이 됨)
-const PHOTO_RED = "#e52525";
+// 하프톤 점(사진 실루엣이 퍼질 때·입장 전환)의 색: 블랙(#1b191a)
+const HALFTONE = "#1b191a";
 let gridStart = 4.6;
 const WAVE_START = 5500;
 const WAVE_DUR = 1900;
@@ -279,7 +279,7 @@ function draw(R) {
             p.arc(x, y, r, 0, 6.2832);
         }
     }
-    ctx.fillStyle = PHOTO_RED;
+    ctx.fillStyle = HALFTONE;
     ctx.fill(p1);
     ctx.fill(p2);
     clip();
@@ -287,7 +287,7 @@ function draw(R) {
 function finish() {
     done = true;
     ctx.clearRect(0, 0, W, H);
-    ctx.fillStyle = PHOTO_RED;
+    ctx.fillStyle = HALFTONE;
     ctx.fillRect(0, 0, W, H);
     clip();
 }
@@ -403,7 +403,7 @@ function transition(ox0, oy0) {
                 path.moveTo(x + r, y);
                 path.arc(x, y, r, 0, 6.2832);
             }
-        tctx.fillStyle = PHOTO_RED;
+        tctx.fillStyle = HALFTONE;
         tctx.fill(path);
     }
     function tick(now) {
@@ -422,7 +422,7 @@ function transition(ox0, oy0) {
                 swapped = true;
             }
             tctx.clearRect(0, 0, tw, th);
-            tctx.fillStyle = PHOTO_RED;
+            tctx.fillStyle = HALFTONE;
             tctx.fillRect(0, 0, tw, th);
             // Still waiting: pin the clock at the end of HOLD so the reveal
             // starts from its beginning once the images land.
