@@ -229,15 +229,9 @@ function layout() {
         dt.style.fontSize = f2 + "px";
         const wd = dt.getBoundingClientRect().width;
         dt.style.left = 746 * km + 0.07 * f2 - wd + "px";
-        // 모바일: 날짜와 '탭하여 입장' 자리를 서로 바꿈.
-        // 날짜는 원래 버튼이 있던 자리(위)로, 버튼은 원래 날짜의 아래 끝에 맞춤.
-        const en = $("#enter"), eh = en.offsetHeight, dh = dt.offsetHeight;
-        const dateBottom = 1573 * km - 1.089 * f2 + dh;
-        dt.style.top = H - 235 * km - eh + "px";
-        en.style.bottom = H - dateBottom + "px";
+        dt.style.top = 1573 * km - 1.089 * f2 + "px";
     }
     else {
-        $("#enter").style.bottom = "";
         const kk = W / 2000;
         let f1 = 84 * kk;
         dt.style.fontSize = f1 + "px";
