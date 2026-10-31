@@ -160,7 +160,7 @@ function layout() {
     let k = W / 2000;
     const km = W / 780;
     // 세로가 짧은 모바일 화면(디자인 기준 높이 1690보다 낮음): 날짜가 화면 밖으로 밀려나고
-    // ■건물이 왼쪽 아래 안내와 겹침 → 건물을 0.98로 줄여 20px 올리고 날짜를 '탭하여 입장' 아래로 옮김
+    // ■건물이 왼쪽 아래 안내와 겹침 → 건물을 0.98로 줄여 35px 올림
     const short = mob && H < 1690 * km;
     stage.classList.toggle("compact", compact);
     stage.classList.toggle("mobile", mob);
@@ -208,7 +208,7 @@ function layout() {
     });
     let tf;
     if (mob)
-        tf = (short ? "translate(0 -20) " : "") + "scale(" + km + ")";
+        tf = (short ? "translate(0 -35) " : "") + "scale(" + km + ")";
     else if (!compact)
         tf = "scale(" + k + ")";
     else {
@@ -240,7 +240,12 @@ function layout() {
         dt.style.fontSize = f2 + "px";
         const wd = dt.getBoundingClientRect().width;
         dt.style.left = 746 * km + 0.07 * f2 - wd + "px";
-        dt.style.top = (short ? H - 235 * km + 14 * km : 1573 * km - 1.089 * f2) + "px";
+        // 날짜 아래 끝선을 왼쪽 아래 안내의 끝선에 맞춤. 글자 기준선(baseline)끼리 맞춤:
+        // Inter 기준 줄 아래에서 기준선까지 거리 = (line-height − 1.211em)/2 + 0.242em
+        // → 날짜(1.45) 0.3615em, 안내(1.78) 0.5265em
+        const lgEl = $("#legend"), lg = lgEl.getBoundingClientRect(), sr = stage.getBoundingClientRect();
+        const fl = parseFloat(getComputedStyle(lgEl).fontSize);
+        dt.style.top = lg.bottom - sr.top - 0.5265 * fl + 0.3615 * f2 - dt.offsetHeight + "px";
     }
     else {
         const kk = W / 2000;
