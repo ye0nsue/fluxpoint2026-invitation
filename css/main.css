@@ -330,7 +330,6 @@ html::-webkit-scrollbar-thumb { background: #dc241b; border-radius: 3px; }
   .intro { margin-top: 0; }
   .intro-title {
     padding: 0.694vw;
-    color: var(--red);
     font-size: 1.528vw;
     line-height: 1.8;
   }
